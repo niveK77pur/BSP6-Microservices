@@ -1,7 +1,6 @@
 ---
 title: Docker References
 tags: technical, docker
-image: https://docs.docker.com/images/docker-docs-logo.svg
 ---
 
 Below will be a compilation of potentially useful information regarding [docker][d-homepage] extracted from the given sources.
