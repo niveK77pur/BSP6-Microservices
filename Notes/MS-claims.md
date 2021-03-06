@@ -4,6 +4,9 @@ tags: scientific, MS
 ---
 
 # Validate the following claims
+
+[![hackmd-github-sync-badge](https://hackmd.io/hQ1DS3pvROSdNq-eAteNIA/badge)](https://hackmd.io/hQ1DS3pvROSdNq-eAteNIA)
+
 ## Deployability: a MS can be deployed independently from any other MS. Prove it.
 If this is true, then it should be possible to:
     - add a new MSs to the collection of available MSs
