@@ -3,7 +3,7 @@ title: Research Questions
 tags: scientific, MS
 ---
 
-[![hackmd-github-sync-badge](https://hackmd.io/G1fp9nwgSh22kN0f_lhh7g/badge)](https://hackmd.io/G1fp9nwgSh22kN0f_lhh7g)
+[![hackmd-github-sync-badge](https://hackmd.io/G1fp9nwgSh22kN0f_lhh7g/badge)](https://hackmd.io/G1fp9nwgSh22kN0f_lhh7g?view)
 
 
 [^ms-definition]: *Microservices: A definition of this new architectural term*  

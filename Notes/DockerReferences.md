@@ -3,7 +3,7 @@ title: Docker References
 tags: technical, docker
 ---
 
-[![hackmd-github-sync-badge](https://hackmd.io/pjNNZfSfSeOp-Zhf-LnYMA/badge)](https://hackmd.io/pjNNZfSfSeOp-Zhf-LnYMA)
+[![hackmd-github-sync-badge](https://hackmd.io/pjNNZfSfSeOp-Zhf-LnYMA/badge)](https://hackmd.io/pjNNZfSfSeOp-Zhf-LnYMA?view)
 
 
 Below will be a compilation of potentially useful information regarding [docker][d-homepage] extracted from the given sources.
