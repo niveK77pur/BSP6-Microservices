@@ -148,7 +148,7 @@ We can also see that scaling an application becomes much less of a burden. No lo
 
 Given all the above, there are drawbacks which come with the microservice architecture. As already pointed out [previously](#design-for-failure), a service can fail at any point in time which makes it quite difficult to build distributed systems. Added to this, remote call are slow which can also have an impact of the final product's performance. Another drawback that we discussed previously is the issue of [eventual consistency](#decentralized-data-management).
 
-As slightly touched upon in the [infractructure automation](#infrastructure-automation) section, we will run into the issue of [operational complexity](https://martinfowler.com/articles/microservice-trade-offs.html#ops), demanding a mature operations team to manage lots of services, which are being redeployed regularly. Here, the [role of DevOps](#what-is-the-role-of-ms-in-devops) comes into play.
+As slightly touched upon in the [infractructure automation](#infrastructure-automation) section, we will run into the issue of [**operational complexity**](https://martinfowler.com/articles/microservice-trade-offs.html#ops), demanding a mature operations team to manage lots of services, which are being redeployed regularly. A product consisting of half-a-dozen applications can quickly expand into hundreds of little microservices. Here, the [role of DevOps](#what-is-the-role-of-ms-in-devops) comes into play to ease this whole process. It becomes increasingly harder, tedious and eventually impossible to manage an increasing number of services which also calls for a lot of automation and monitoring to take place. Given that MSs are smaller and thus easier to understand, problems are likely to occur in the interconnections of such services which potentially makes it very difficult to trace and debug issues&mdash;hence the need for proper and elaborate monitoring.
 
 # Are there any patterns? See book to be provided as reference.
 
@@ -166,6 +166,8 @@ Maybe useful references:
 # What is the role of MS in DevOps?
 
 - <https://martinfowler.com/articles/microservice-trade-offs.html#ops>
+
+  Operational Complexity. Refer to [previous section](#drawbacks-of-ms).
 
 - <https://martinfowler.com/bliki/MicroservicePrerequisites.html>
 
