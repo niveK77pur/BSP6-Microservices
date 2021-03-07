@@ -166,7 +166,25 @@ Maybe useful references:
 # What is the role of MS in DevOps?
 
 - <https://martinfowler.com/articles/microservice-trade-offs.html#ops>
+
 - <https://martinfowler.com/bliki/MicroservicePrerequisites.html>
+
+  talks about things that need to be taken into consideration and why they bear more importance than for monolithic architectures
+
+  - **Rapid provisioning.** To be able to rapidly launch a server (within a few hours), it is important to automate the process of provisioning. To seriously make use MSs, one should strive for a fully automated process&mdash;as far as this is possible.
+
+  - **Basic monitoring.** Due to loosely-coupled services working together in production, things are bound to go wrong in ways that are difficult to detect in test environments. It is therefore of utmost importance to ensure serious problems&mdash;appearing through technical issues, but also business issues&mdash;are detected swiftly.
+
+    *Technical issues* could encompass run-time errors, or service availability. *Business issues* can be related to a drop in orders, or problems with sending transactions through multiple services.
+
+  - **Rapid application deployment.** Deployment usually involves a [pipeline](https://martinfowler.com/bliki/DeploymentPipeline.html) with various steps, each providing some sort of validation of the product. With many services to manage, this pipeline should striven to be fully automated. Achieving this implies close collaboration between developers and operations: the **[DevOpsCulture](https://martinfowler.com/bliki/DevOpsCulture.html)**.
+
+- <https://martinfowler.com/bliki/DevOpsCulture.html>
+
+  - Traditionally software development is broken down into distinct categories such as requirements analysis, testing and development as well as deployment, operations and maintenance once the product is released. DevOps aims that merging these categories and favour collaboration between **dev**elopment and **op**eration**s**.
+  - A DevOps approach has the side effect of *shared responsibilities*, encouraging closer collaboration. As briefly mentioned [previously](#organized-around-business-capabilities), since developers and operators are now working under the same hood, the former is much more inclined to adapt a mindset of finding ways to simplify deployment and maintenance since they are closely involved with the tasks of the operators. If the development team would just hand over the finished product and not worry about it anymore, they would not see the difficulties operators might need to face in light of their productions.
+  - Given that each party is more involved in each other's tasks, this leads to better understanding of the processes and issues which developers and operators need to tackle. This allows for much more efficient problem solving and leads to teams needing to value building quality into the development process. The aim being to automate the deployments and seeding up the testing cycle which results in greater ease of putting code into production.
+  - Automation is an important factor in all of the above. For one, automated tasks such as testing, configuration and deployment free staff of these burdens and reduce human error. Another point is that the automation scripts essentially serve as useful and up-to-date documentation of the system. Should, for example, a developer or operator want to inspect or change how a server is configured, they know where to look.
 
 # Why MS are important in the context of DevOps?
 
