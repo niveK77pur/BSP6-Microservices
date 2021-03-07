@@ -7,16 +7,20 @@ tags: scientific, MS
 
 
 [^ms-definition]: *Microservices: A definition of this new architectural term*  
-https://martinfowler.com/articles/microservices.html
+<https://martinfowler.com/articles/microservices.html>
 
 
 # What is a microservice (MSs)?
 
 A first simple definition can be found in the first paragraph of the MSs article[^ms-definition] that lays out some aspects which characterize a MS architecture.
 
-> In short, the microservice architectural style is an approach to developing a single application as a **suite of small services**, each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API. These services are **built around business capabilities and independently deployable** by fully automated deployment machinery. There is a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies. 
+> In short, the microservice architectural style is an approach to developing a single application as a **suite of small services**, each running **in its own process** and communicating with lightweight mechanisms, often an HTTP resource API. These services are **built around business capabilities** and **independently deployable** by fully automated deployment machinery. There is a **bare minimum of centralized management** of these services, which may be written in different programming languages and use different data storage technologies. 
 
 However, as stated multiple times in the article[^ms-definition], there is no formal definition for MS. As such, we shall inspect characteristics that such architectures tend to have in common.
+
+Before we move on, an interesting point to note here is the decreased need for *centralized management*. [To give an example](https://content.personalfinancelab.com/finance-knowledge/management/centralized-and-decentralized-management-explained/?v=c4782f5abe5c), centralized management is a structure where only a few individuals make most of the decisions in a company. We can find hierarchies within such a structure, each having to respond to the superior's communicate. 
+
+Decentralized management on the other hand would for example allow a manager at a call center or retail store to make instant decisions that impact their work environment. Thus, the decisions are not taken solely by the higher ups but responsibilities are spread across sectors—which could further spread responsibilities. This is an interesting analogy to keep in mind for the following.
 
 ## Componentization via Services
 
@@ -140,27 +144,40 @@ We can also see that scaling an application becomes much less of a burden. No lo
 *Interesting piece of information*
 >We do not claim that the microservice style is novel or innovative, its roots go back at least to the design principles of Unix.
 
+# Drawbacks of MS
 
-## Are there any patterns? See book to be provided as reference.
+Given all the above, there are drawbacks which come with the microservice architecture. As already pointed out [previously](#design-for-failure), a service can fail at any point in time which makes it quite difficult to build distributed systems. Added to this, remote call are slow which can also have an impact of the final product's performance. Another drawback that we discussed previously is the issue of [eventual consistency](#decentralized-data-management).
 
-### Find out what is the best pattern to be used in the context of E4L.
+As slightly touched upon in the [infractructure automation](#infrastructure-automation) section, we will run into the issue of [operational complexity](https://martinfowler.com/articles/microservice-trade-offs.html#ops), demanding a mature operations team to manage lots of services, which are being redeployed regularly. Here, the [role of DevOps](#what-is-the-role-of-ms-in-devops) comes into play.
 
-### Is the current E4L's architecture (i.e. front-end + back-end) a MS's pattern?
+# Are there any patterns? See book to be provided as reference.
 
-### If not, explain why and how it should the current architecture be adapted to adhere to a MS's pattern.
+Maybe useful references:
 
-## What is the role of MS in DevOps?
+- <https://martinfowler.com/articles/break-monolith-into-microservices.html>
+- <https://martinfowler.com/articles/extract-data-rich-service.html>
 
-## Why MS are important in the context of DevOps?
+## Find out what is the best pattern to be used in the context of E4L.
 
-## How are both concepts connected to each other?
+## Is the current E4L's architecture (i.e. front-end + back-end) a MS's pattern?
 
-## What is the standard manner of modelling an architecture, and in particular how can we model MSs?
+## If not, explain why and how it should the current architecture be adapted to adhere to a MS's pattern.
 
-## What is the best kind of request for a particular MS between POST and GET?
+# What is the role of MS in DevOps?
 
-### What is a POST request?
+- <https://martinfowler.com/articles/microservice-trade-offs.html#ops>
+- <https://martinfowler.com/bliki/MicroservicePrerequisites.html>
 
-### What is a GET request?
+# Why MS are important in the context of DevOps?
 
-### Can you provide a rationale to help making the decision?
+# How are both concepts connected to each other?
+
+# What is the standard manner of modelling an architecture, and in particular how can we model MSs?
+
+# What is the best kind of request for a particular MS between POST and GET?
+
+## What is a POST request?
+
+## What is a GET request?
+
+## Can you provide a rationale to help making the decision?
