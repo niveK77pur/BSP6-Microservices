@@ -1,5 +1,6 @@
 ---
 title: GitLab CI/CD
+tags: technical, gitlab
 ---
 
 
