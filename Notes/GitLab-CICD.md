@@ -9,6 +9,9 @@ tags: technical, gitlab
 [gl-pipelines]: https://docs.gitlab.com/ee/ci/pipelines/index.html
 [gl-pipearch]: https://docs.gitlab.com/ee/ci/pipelines/pipeline_architectures.html
 [gl-ciguide]: https://docs.gitlab.com/ee/user/project/pages/getting_started/pages_from_scratch.html
+[gl-registry]: https://docs.gitlab.com/ee/user/packages/container_registry/
+[d-registry-intro]: https://docs.docker.com/registry/introduction/
+[gl-docker]: https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#use-the-docker-executor-with-the-docker-image-docker-in-docker
 
 # What is CI/CD?
 
@@ -89,3 +92,13 @@ In case the pipeline needs a modification, either due to issues or other reasons
 This point also directly leads us to the briefly mentioned shared responsibilities in the [research document][rqdoc]. Each member of the team is quite closely involved with creating the pipeline. For instance the developers should specify how the the application is to be built; testers should take care of how tests are to be executed; operators handle everything with regards to deploying the product; and so on
 
 Since the whole pipeline is defined within a single configuration file on GitLab, every member of the team can see the role and work of the others and hopefully becomes more inclined to simplify the whole process. In contrast to a monolithic approach where the developer's product is simply handed over to the operators and not looked after anymore by its creators, here everyone is fully engaged with every step of the process. If for instance a developer causes the pipeline to fail, for whatever reason, the whole process will be on halt until solved&mdash;because the code cannot be deployed if previous stages like building or testing have failed.
+
+# GitLab Container Registry
+
+> With the [GitLab Container Registry][gl-registry], every project can have its own space to store images. [More information](https://minsky.uni.lu/gitlab/help/user/packages/container_registry/index). Expiration policies help manage the storage space used by the Container Registry.
+
+More general information about Registry can be found in the [docker docs][d-registry]. For information on GitLab's Registry, check out the [gitlab docs][gl-registry].
+
+To get an idea of how the registry is actually used, please refer to [the configuration and example sections](https://docs.gitlab.com/ee/user/packages/container_registry/#configure-your-gitlab-ciyml-file) of the documentation.
+
+We have the ability to use [docker to build docker images][gl-docker] in GitLab.
