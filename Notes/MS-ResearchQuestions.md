@@ -163,7 +163,7 @@ Maybe useful references:
 
 ## If not, explain why and how it should the current architecture be adapted to adhere to a MS's pattern.
 
-# What is the role of MS in DevOps?
+# What is the role of DevOps in MS?
 
 - <https://martinfowler.com/articles/microservice-trade-offs.html#ops>
 
@@ -188,15 +188,15 @@ Maybe useful references:
   - Given that each party is more involved in each other's tasks, this leads to better understanding of the processes and issues which developers and operators need to tackle. This allows for much more efficient problem solving and leads to teams needing to value building quality into the development process. The aim being to automate the deployments and seeding up the testing cycle which results in greater ease of putting code into production.
   - Automation is an important factor in all of the above. For one, automated tasks such as testing, configuration and deployment free staff of these burdens and reduce human error. Another point is that the automation scripts essentially serve as useful and up-to-date documentation of the system. Should, for example, a developer or operator want to inspect or change how a server is configured, they know where to look.
 
+# Why MS are important in the context of DevOps?
+
+# How are both concepts connected to each other?
+
 Given the above points and a few of the characteristics of MSs, one could derive the implication that DevOps is, in fact, an inherent aspect that comes along with the microservice philosophy. The two points that lead us to this assumption were the [Organized around Business Capabilities](#organized-around-business-capabilities) and [Infrastructure Automation](#infrastructure-automation) characteristics.
 
 The [infrastructure automation](#infrastructure-automation) becomes increasingly relevant if our network of MSs expands. Managing only a handful of services by hand can still be feasible, but if we have a few dozens or more services this quickly becomes a virtually impossible task as we would need to take care of each of the countless services individually. As for the DevOps side of things, to increase production speed automation is an equally important factor. Not only does it free the staff of work, but it also reduces human error&mdash;which seems likely to seep in when managing lots of services in parallel. These viewpoints on automation allow us to draw a conclusion on how the DevOps approach is vital in order to make working with microservices a feasible task.
 
 The second point is that the automation scripts serve as useful and up-to-date documentation of the system. This is very useful in that both developers and operators can inspect these scripts and be on the same page with regards to how the system is built and works. This directly leads us to the MS characteristic of [organizing around business bapabilities](#organized-around-business-capabilities). The fact that we do not split our teams according to application layers&mdash;as is usually the case for monoliths&mdash;but rather according to functionalities, favours collaboration of each application layer's expert. The automation scripts coming forth through the DevOps aspect serve in this regard as a bridge to ease this collaboration among team members and thus help further boost and encourage the idea of organising in terms of functionalities rather than isolated application layers.
-
-# Why MS are important in the context of DevOps?
-
-# How are both concepts connected to each other?
 
 # What is the standard manner of modelling an architecture, and in particular how can we model MSs?
 
@@ -207,3 +207,27 @@ The second point is that the automation scripts serve as useful and up-to-date d
 ## What is a GET request?
 
 ## Can you provide a rationale to help making the decision?
+
+
+
+# Methodology for RQ
+
+## Types of RQs presented
+
+We explore two main types of RQs in this project. The first type focuses on general questions regarding the technologies and concepts. Within this type of RQs we have one particular question that may require a different methodology.
+
+This last RQ leads us to the second type, focusing on more practical use cases. These questions will rather explore the features of the technologies as well as their implications on actual productions. This second type partly corresponds to our *claims* which need to be validated using a certain procedure.
+
+## Methodology for first type of RQ
+
+Given that these questions will focus on general ideas and concepts regarding MSs and their technologies, collecting answers will not be conducted using experiments. Answering these RQs will be done through research on the given topics as well as drawing our own conclusions based on the collected material and insights.
+
+We shall present and structure the questions in a way that their answers builds upon each other. The goal is to introduce various concepts such that we can lay out our line of thought and reach conclusions for other RQs.
+
+## Methodology for second type of RQ
+
+The more technically inclined RQ will require a bit more than just research. The insights gained from the previous type of RQ shall however be of great value for obtaining our answers. Here we will need a more practical approach, inspecting the actual tools and applications, in order to makes ties between the technical parts and the concepts. This combination is what will allow us to answer with a high degree of certainty.
+
+To give a concrete example, let's consider the question *Is the current E4L's architecture (i.e. front-end + back-end) a MS's pattern?*. We clearly need to be familiar with the concepts that surround MSs patterns in order to answer this question. However, we furthermore need to inspect the E4L application itself and draw parallels which will yield our answers.
+
+Regarding the methodology for claims, please refer to the [documents treating the claims](MS-claims#methodology-for-claims).

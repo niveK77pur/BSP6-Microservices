@@ -45,3 +45,10 @@ What is the benchmark that allows us to conclude that architecting a web-based a
 - Scalability: how much time does it take to extend the existing services to support more requests (i.e. increase its capacity)?
 - Any others?
 
+# Methodology for Claims
+
+Claims will be very technically devoted. As such, mere research on the matter will not suffice to validate them. While the research and methodologies presented for the RQs are relevant for this part, one should rather focus on the how to conduct the actual experiments that aim at validating a claim.
+
+Seeing that claims are possibly independent, there is no single guide to be followed for each experiment. In case some claims rely on results of other claims, one should ensure that these were validated in the proper order, as otherwise the validity is questionable.
+
+What is very important for the experiments, is that they are reproducible. As such, the experiments should be properly and explicitely documented while also presenting the obtained results and possibly the produced or used artifacts. Lastly, in order to prevent obscure experiments that lead to dubious conclusions one should design the experiments to be as small-scale and isolated as possible. The aim is to keep the experiments simple which in turn will lead to greater clarity and also better reproducability.
