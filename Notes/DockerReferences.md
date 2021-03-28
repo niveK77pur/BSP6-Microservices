@@ -15,6 +15,9 @@ Below will be a compilation of potentially useful information regarding [docker]
 [d-install]: https://docs.docker.com/get-docker/
 [d-archwiki]: https://wiki.archlinux.org/index.php/Docker
 [d-archinstall]: https://wiki.archlinux.org/index.php/Docker#Installation
+[d-compose]: https://docs.docker.com/compose/
+[dc-tutorial]: https://docs.docker.com/compose/gettingstarted/
+[dc-networking]: https://docs.docker.com/compose/networking/
 
 
 # Docker Overview
@@ -171,3 +174,24 @@ We can then access the dash application in our browser through <localhost:8050>.
 
 The following link contains a list of available `Dockerfile` instructions along with a short sentence of what they do. 
 <https://www.fosstechnix.com/dockerfile-instructions/>
+
+# Docker-Compose
+
+An overview of docker compose can be found in the [docker docs][d-compose].
+
+A getting started tutorial is also available [in the docs][dc-tutorial]. In here you will among other things be exposed to the concept of *services*&mdash;although not much detail is provided.
+
+# Docker Network
+
+The [networking][dc-network] essentially allows us to place our containers in a network of containers. One can think of it as allowing each of the services to be part of a collection of other services. Communication between services can then occur via the container's local IP addresses within the network. One also has the possibility for services to communicate across networks through a container's IP address as exposed outside of its network.
+
+Within the docker-compose file we distinguish between two `networks` specifications, as briefly outlined in the following.
+
+## Top-level networks key
+
+The `networks` specification in the top level of the YAML file allows us to specify [our own networks](https://docs.docker.com/compose/compose-file/compose-file-v2/#network-configuration-reference) to be created. If this is not specified, a default network going by the name `<app-directory-name>_default` is created, and each service joins this network.
+
+## Service-level networks key
+
+The `networks` specification in a service on the other hand, allows us to specify [which network a service should join](https://docs.docker.com/compose/compose-file/compose-file-v2/#networks). The networks that can be specified here correspond to the networks described and created in the top-level. As such we can easily create complex networks of services without puzzling configurations.
+
