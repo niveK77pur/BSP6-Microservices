@@ -196,7 +196,31 @@ Given the above points and a few of the characteristics of MSs, one could derive
 
 The [infrastructure automation](#infrastructure-automation) becomes increasingly relevant if our network of MSs expands. Managing only a handful of services by hand can still be feasible, but if we have a few dozens or more services this quickly becomes a virtually impossible task as we would need to take care of each of the countless services individually. As for the DevOps side of things, to increase production speed automation is an equally important factor. Not only does it free the staff of work, but it also reduces human error&mdash;which seems likely to seep in when managing lots of services in parallel. These viewpoints on automation allow us to draw a conclusion on how the DevOps approach is vital in order to make working with microservices a feasible task.
 
-The second point is that the automation scripts serve as useful and up-to-date documentation of the system. This is very useful in that both developers and operators can inspect these scripts and be on the same page with regards to how the system is built and works. This directly leads us to the MS characteristic of [organizing around business bapabilities](#organized-around-business-capabilities). The fact that we do not split our teams according to application layers&mdash;as is usually the case for monoliths&mdash;but rather according to functionalities, favours collaboration of each application layer's expert. The automation scripts coming forth through the DevOps aspect serve in this regard as a bridge to ease this collaboration among team members and thus help further boost and encourage the idea of organising in terms of functionalities rather than isolated application layers.
+The second point is that the automation scripts serve as useful and up-to-date documentation of the system. This is very useful in that both developers and operators can inspect these scripts and be on the same page with regards to how the system is built and works. This directly leads us to the MS characteristic of [organizing around business bapabilities](#organized-around-business-capabilities). The fact that we do not split our teams according to application layers&mdash;as is usually the case for monoliths&mdash;but rather according to functionalities, favours collaboration of each application layer's expert. The automation scripts coming forth through the DevOps aspect serve in this regard as a bridge to ease this collaboration among team members and thus help further boost and encourage the idea of organising in terms of functionalities rather than isolated application layers.tags 
+
+# Parallels to aspects of DevOps and MS
+
+Here we will look at what parts of the GitLab tools are related to DevOps and MS aspects&mdash;which were mentioned in the [Research Question][rqdoc] document.
+
+[rqdoc]: MS-ResearchQuestions
+
+## Automation
+
+As pointed out in the [DevOps section](MS-ResearchQuestions#what-is-the-role-of-ms-in-devops?) of the [research document][rqdoc], automation plays a big role in DevOps and MS. In GitLab we have the ability to create so-called [*pipelines*](GitLab-CICD#what-are-pipelines?) which handle certain tasks automatically. A pipeline essentially consists of a collection of jobs which are executed at specified stages of the pipeline. Within a job we have&mdash;among many others&mdash;the ability to specify what commands should be run.
+
+Having these commands written out explicitly in this manner first of all allows us to simply run the job&mdash;which in turn will execute the provided instructions&mdash;and have our application be automatically built, tested, deployed or complete whatever task our job is aimed at. As a matter of fact the pipeline, along with its jobs, is run after every push to the repository. Hence we only merely need to change the code and GitLab will take the rest of the work off our shoulders.
+
+## Developer and Operator Collaboration
+
+Another point that was made in the [research document][rqdoc] is that these automation scripts serve as a common reference for every member of a team. And indeed, viewing the GitLab pipeline specification is not restricted solely to a subset of the team. Everyone can see it and glimpse at how the application is built and what stages need to be completed before it gets the green light into production.
+
+In case the pipeline needs a modification, either due to issues or other reasons, it is not simply the role of the operators to take care of handling and solving the situation. If for example the developers need something to change in the pipeline, they can consult directly and in a precise manner with the operators on what would be the best course of action, or maybe they could even implement the modifications themselves directly.
+
+## Shared responsibilities
+
+This point also directly leads us to the briefly mentioned shared responsibilities in the [research document][rqdoc]. Each member of the team is quite closely involved with creating the pipeline. For instance the developers should specify how the the application is to be built; testers should take care of how tests are to be executed; operators handle everything with regards to deploying the product; and so on
+
+Since the whole pipeline is defined within a single configuration file on GitLab, every member of the team can see the role and work of the others and hopefully becomes more inclined to simplify the whole process. In contrast to a monolithic approach where the developer's product is simply handed over to the operators and not looked after anymore by its creators, here everyone is fully engaged with every step of the process. If for instance a developer causes the pipeline to fail, for whatever reason, the whole process will be on halt until solved&mdash;because the code cannot be deployed if previous stages like building or testing have failed.
 
 # What is the standard manner of modelling an architecture, and in particular how can we model MSs?
 
