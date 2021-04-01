@@ -123,9 +123,7 @@ It is therefore of utmost importance to detect failures quickly and restore the 
 
 To understand the benefits and motivations behind using MS over the monolithic style, we will first look at the latter.[^ms-definition]
 
-Monolithic architectures build applications using a single unit. This basically means that all of an application's functionality, logic, classes, function and namespaces are in the end located within a single executable and thus run within a single process.
-
-This model works in fact and allows us to create a functioning system, but still raises some issues. For instance, the fact that even the smallest of changes within an application require the whole product to be rebuilt and redeployed is not an ideal scenario.
+Monolithic architectures build applications using a single unit. This basically means that all of an application's functionality, logic, classes, function and namespaces are in the end located within a single executable and thus run within a single process. This model works in fact and allows us to create a functioning system, but still raises some issues. For instance, the fact that even the smallest of changes within an application require the whole product to be rebuilt and redeployed is not an ideal scenario.
 
 As the application's life cycles goes on, it is unavoidable to modify it over time. In a monolithic system however, it becomes increasingly difficult to maintain a modular structure&mdash;if one was present to begin with&mdash;which in turn also leads to modifications becoming more expensive. This is explained by the fact that if a modular structure cannot be guaranteed, it possibly entails that changes to one component may impact other components which were not supposed to be affected.
 
@@ -165,6 +163,8 @@ Maybe useful references:
 
 # What is the role of DevOps in MS?
 
+*NOTE: Discussion found in [section blow](#how-are-both-concepts-connected-to-each-other)*
+
 - <https://martinfowler.com/articles/microservice-trade-offs.html#ops>
 
   Operational Complexity. Refer to [previous section](#drawbacks-of-ms).
@@ -196,9 +196,11 @@ Given the above points and a few of the characteristics of MSs, one could derive
 
 The [infrastructure automation](#infrastructure-automation) becomes increasingly relevant if our network of MSs expands. Managing only a handful of services by hand can still be feasible, but if we have a few dozens or more services this quickly becomes a virtually impossible task as we would need to take care of each of the countless services individually. As for the DevOps side of things, to increase production speed automation is an equally important factor. Not only does it free the staff of work, but it also reduces human error&mdash;which seems likely to seep in when managing lots of services in parallel. These viewpoints on automation allow us to draw a conclusion on how the DevOps approach is vital in order to make working with microservices a feasible task.
 
-The second point is that the automation scripts serve as useful and up-to-date documentation of the system. This is very useful in that both developers and operators can inspect these scripts and be on the same page with regards to how the system is built and works. This directly leads us to the MS characteristic of [organizing around business bapabilities](#organized-around-business-capabilities). The fact that we do not split our teams according to application layers&mdash;as is usually the case for monoliths&mdash;but rather according to functionalities, favours collaboration of each application layer's expert. The automation scripts coming forth through the DevOps aspect serve in this regard as a bridge to ease this collaboration among team members and thus help further boost and encourage the idea of organising in terms of functionalities rather than isolated application layers.tags 
+The second point is that the automation scripts serve as useful and up-to-date documentation of the system. This is very useful in that both developers and operators can inspect these scripts and be on the same page with regards to how the system is built and works. This directly leads us to the MS characteristic of [organizing around business bapabilities](#organized-around-business-capabilities). The fact that we do not split our teams according to application layers&mdash;as is usually the case for monoliths&mdash;but rather according to functionalities, favours collaboration of each application layer's expert. The automation scripts coming forth through the DevOps aspect serve in this regard as a bridge to ease this collaboration among team members and thus help further boost and encourage the idea of organising in terms of functionalities rather than isolated application layers.
 
-# Parallels to aspects of DevOps and MS
+*__Threats to validity:__ The above discussion and conclusions have been drawn without knowledge on the technologies. Merely the researched material presented from the start of this document up until this point were taken into consideration. That said, given more expertise on how it works in practice might give a more precise and elaborate answer.*
+
+# Parallels of GitLab CI/CD to aspects of DevOps and MS
 
 Here we will look at what parts of the GitLab tools are related to DevOps and MS aspects&mdash;which were mentioned in the [Research Question][rqdoc] document.
 
@@ -221,6 +223,10 @@ In case the pipeline needs a modification, either due to issues or other reasons
 This point also directly leads us to the briefly mentioned shared responsibilities in the [research document][rqdoc]. Each member of the team is quite closely involved with creating the pipeline. For instance the developers should specify how the the application is to be built; testers should take care of how tests are to be executed; operators handle everything with regards to deploying the product; and so on
 
 Since the whole pipeline is defined within a single configuration file on GitLab, every member of the team can see the role and work of the others and hopefully becomes more inclined to simplify the whole process. In contrast to a monolithic approach where the developer's product is simply handed over to the operators and not looked after anymore by its creators, here everyone is fully engaged with every step of the process. If for instance a developer causes the pipeline to fail, for whatever reason, the whole process will be on halt until solved&mdash;because the code cannot be deployed if previous stages like building or testing have failed.
+
+*__Methodology__: Answering this RQ was possible through the accumulation of answers in sections prior to this one, and by having a look at the [GitLab CI/CD workflow](GitLab-CICD). The RQ provided us with the basic knowledge required to understand the topic at hand, while the GitLab tutorial in particular gave us the first dive into the technology. Both lead us to answering this RQ.*
+
+*__Threats to validity:__ Very little knowledge on the technologies was present at the time of writing these correlations. In fact, the introductory GitLab tutorial brought the only experience. That said, some of the information may be incomplete or imprecise due to a lack of expertise.*
 
 # What is the standard manner of modelling an architecture, and in particular how can we model MSs?
 
