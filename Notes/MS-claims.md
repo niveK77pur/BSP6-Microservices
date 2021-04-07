@@ -37,7 +37,36 @@ If this is true, then it should be possible to:
 > One reasonable argument we've heard is that you shouldn't start with a microservices architecture. Instead begin with a monolith, keep it modular, and split it into microservices once the monolith becomes a problem. (Although this advice isn't ideal, since a good in-process interface is usually not a good service interface.)  
 <https://martinfowler.com/articles/microservices.html>
 
+# Does E4L allow for easy deployment of adjacent MSs?
+
+The current Energy4Life application can be found at <https://juno.uni.lux/e4l>. Our first microservice had the job of obtaining data from E4L and plotting it in our Dash/Plotly python application.
+
+## First attempt at obtaining data from the back-end
+
+Upon inspection of the [E4L backend](https://minsky.uni.lu/gitlab/e4l/lu.uni.e4l.platform.api.dev/-/tree/master), we were able to find a potentially relevant endpoint that would allow us to [query answers from the questionnaire](https://minsky.uni.lu/gitlab/e4l/lu.uni.e4l.platform.api.dev/-/blob/master/src/main/java/lu/uni/e4l/platform/controller/QuestionnaireController.java#L49). However, it quickly became apparent that the back-end endpoints were specifically made to be used by the front-end page. Further evidence for this can be found in the [described functionalities](https://minsky.uni.lu/gitlab/e4l/lu.uni.e4l.platform.api.dev#project-funtionalities) in the README, which also informs us that the only data that can be extracted is specific to a session. All of this essentially means that we have no direct way to access any data beyond what we are presented on the web page&mdash;which would only comprise our results in the questionnaire.
+
+Upon completing the questionnaire in E4L, we are presented the following page: <https://juno.uni.lux/e4l/result/MzA5.-7-sMYXmv3tXyuLQT2s1ZgULRKY>. The so-called *sessionId* is unique to our provided answers, so by taking note of it we are able to review our *energy score*s at any point in time. The obvious course of action now would be to use the `/calculate/session/{sessionId}` endpoint&mdash;which is our only of two GET handlers regarding the questionnaire&mdash;to obtain our results.
+
+## Scraping the results page for data
+
+One problem rose quickly however: We had no information on where or how to access the back-end in order to issue our GET request. Upon inspection in the code for both the front-end and back-end we were unable to find any concrete traces on how to reach it. The closest we managed to find was the definition of a [`baseUrl` using `axios`](https://minsky.uni.lu/gitlab/e4l/lu.uni.e4l.platform.frontend.dev/-/blob/master/src/js/container/info.js#L15), but that still left us clueless. So we set out to create a web scraper that would parse the HTML of the above results page.
+
+We used `selenium` to perform this task. However, running the browser in headless mode&mdash;as was required for running this code in a docker container&mdash;caused issues with our scraper. It turns out that the page contents would not be loaded unless the page was rendered by the browser. In addition to this approach being extremely slow due to `selenium`, it was simply not usable for our use-case.
+
+## Obtaining data from the back-end API
+
+It was only after a third and final inspection of the E4L code&mdash;performed while documenting here what we did&mdash;with the help of GitLab's search utility, that we discovered how to [access the back-end](https://minsky.uni.lu/gitlab/e4l/lu.uni.e4l.platform.frontend.dev/-/blob/master/README.md#L19). It was hidden in plain site in the front-end README, however it was not highlighted very well which caused us to completely overlook it at multiple occasions.
+
+That said, we were able to retrieve our results using the API by issuing a GET request on `https://juno.uni.lux/e4lapi/calculate/session/MzA5.-7-sMYXmv3tXyuLQT2s1ZgULRKY`. However, some data about global statistics (i.e. Luxembourg, Europe, World) were not available as they seemed to be hard coded into the front-end.
+
+## Conclusion
+
+The back-end endpoints allow us to easily access E4L functionality without being bound to the web page. This of course makes is very interesting to build adjacent microservices by directly requesting data through the exposed endpoints. To further improve this workflow, one would need to better highlight the existence and features of the back-end as they seem to be somewhat scattered throughout the application's documentations.
+
+One should note however, that the endpoints were specifically made to be used by the front-end. This implies that some of the data obtained is not fully usable for *general* API usage (i.e. the hard coded data in the front-end). Further, as could be observed in the implementation of the back-end endpoints, not all available database and service functionalities were reachable through the API (i.e. no way to query **all** answers for making statistics). A tight coupling of front- and back-end can be observed here.
+
 # Define assessment criteria to evaluate the benefits brought by MSs
+
 What is the benchmark that allows us to conclude that architecting a web-based application as a collection of MSs is better than a monolithic system?
 - Cycle time of the pipeline: time the pipeline takes to be completed.
 - Lead time: from requirement to delivery.
