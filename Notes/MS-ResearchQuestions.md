@@ -200,13 +200,15 @@ The second point is that the automation scripts serve as useful and up-to-date d
 
 *__Threats to validity:__ The above discussion and conclusions have been drawn without knowledge on the technologies. Merely the researched material presented from the start of this document up until this point were taken into consideration. That said, given more expertise on how it works in practice might give a more precise and elaborate answer.*
 
-# Parallels of GitLab CI/CD to aspects of DevOps and MS
+Parallels of GitLab CI/CD to aspects of DevOps and MS
+
+# 1 - How can DevOps aspects be implemented using/in GitLab CI/CD?
 
 Here we will look at what parts of the GitLab tools are related to DevOps and MS aspects&mdash;which were mentioned in the [Research Question][rqdoc] document.
 
 [rqdoc]: MS-ResearchQuestions
 
-## Automation
+## Automation (build & deploy)
 
 As pointed out in the [DevOps section](MS-ResearchQuestions#what-is-the-role-of-ms-in-devops?) of the [research document][rqdoc], automation plays a big role in DevOps and MS. In GitLab we have the ability to create so-called [*pipelines*](GitLab-CICD#what-are-pipelines?) which handle certain tasks automatically. A pipeline essentially consists of a collection of jobs which are executed at specified stages of the pipeline. Within a job we have&mdash;among many others&mdash;the ability to specify what commands should be run.
 
@@ -227,6 +229,12 @@ Since the whole pipeline is defined within a single configuration file on GitLab
 *__Methodology__: Answering this RQ was possible through the accumulation of answers in sections prior to this one, and by having a look at the [GitLab CI/CD workflow](GitLab-CICD). The RQ provided us with the basic knowledge required to understand the topic at hand, while the GitLab tutorial in particular gave us the first dive into the technology. Both lead us to answering this RQ.*
 
 *__Threats to validity:__ Very little knowledge on the technologies was present at the time of writing these correlations. In fact, the introductory GitLab tutorial brought the only experience. That said, some of the information may be incomplete or imprecise due to a lack of expertise.*
+
+**Methodology:** (0) Answer question *What is the relationship between DevOps and MSs?* (1) use the in-house hosted of gitlab service provided by the university. Request access to this service. (2) Create a repository where we store our application. Expected to along E4L app. (3) Create a pipeline to automate the build and deploy of app in a testing environment.
+
+Relation between DevOps & MS?
+
+# How can MS aspects be implemented using/in Docker?
 
 # What is the standard manner of modelling an architecture, and in particular how can we model MSs?
 
