@@ -14,6 +14,7 @@ tags: technical, gitlab
 [gl-docker]: https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#use-the-docker-executor-with-the-docker-image-docker-in-docker
 [gl-tags]: https://docs.gitlab.com/ee/ci/yaml/#tags
 [gl-runner-tags]: https://docs.gitlab.com/runner/#tags
+[gl-environments]: https://docs.gitlab.com/ee/ci/environments/
 
 # What is CI/CD?
 
@@ -84,3 +85,29 @@ We have the ability to use [docker to build docker images][gl-docker] in GitLab.
 # GitLab Job Tags
 
 [Tags][gl-tags] in jobs are not a means to add meta information to a job, but rather allow us to specify with which runner a job should be executed. As such, when registering a runner you can [associate a tag][gl-runner-tags] to it. When both the tags specified in the job as well as those specified for a runner match, the job will be executed with said runner.
+
+# Environments and deployments
+
+> [Environments][gl-environments] describe where code is deployed.
+>
+> Each time [GitLab CI/CD](https://docs.gitlab.com/ee/ci/yaml/README.html) deploys a version of code to an environment, a deployment is created.
+>
+> GitLab:
+>
+> - Provides a full history of deployments to each environment.
+> - Tracks your deployments, so you always know what is deployed on your servers.
+>
+> If you have a deployment service like [Kubernetes](https://docs.gitlab.com/ee/user/project/clusters/index.html) associated with your project, you can use it to assist with your deployments. You can even access a [web terminal](https://docs.gitlab.com/ee/ci/environments/#web-terminals) for your environment from within GitLab.
+
+For creating static environments, specify a name for the environment and optionally, a URL, which determines the deployment URL. For example:
+
+```yml
+deploy_staging:
+  stage: deploy
+  script:
+    - echo "Deploy to staging server"
+  environment:
+    name: staging
+    url: https://staging.example.com
+```
+
