@@ -2,6 +2,16 @@
  
 \usepackage{datetime}
 \usepackage{xcolor}
+\usepackage[colorlinks=true]{hyperref}
+
+\let\labelindent\relax
+\usepackage[inline,shortlabels]{enumitem}
+
+\newcounter{tdel}
+\newcounter{sdel}
+
+\newcommand{\AC}[1]{\noindent{\color{orange}{{\bf[AC:}{{#1}}}]}}
+\newcommand{\KB}[1]{\noindent{\color{purple}{{\bf[KB:}{{#1}}}]}}
 
 % *** CITATION PACKAGES ***
 %
