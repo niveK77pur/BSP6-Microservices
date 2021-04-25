@@ -3,6 +3,7 @@
 \usepackage{datetime}
 \usepackage{xcolor}
 \usepackage[colorlinks=true]{hyperref}
+\usepackage{glossaries}
 
 \let\labelindent\relax
 \usepackage[inline,shortlabels]{enumitem}
@@ -12,6 +13,12 @@
 
 \newcommand{\AC}[1]{\noindent{\color{orange}{{\bf[AC:}{{#1}}}]}}
 \newcommand{\KB}[1]{\noindent{\color{purple}{{\bf[KB:}{{#1}}}]}}
+
+\glsdisablehyper
+\newacronym{bsp}{BSP}{Bachelor Semester Project}
+\newacronym{e4l}{E4L}{Energy4Life}
+\newacronym{ms}{MS}{Microservice}
+\newacronym{cicd}{CI/CD}{Continuous Integration and Continuous Deployment}
 
 % *** CITATION PACKAGES ***
 %
@@ -230,20 +237,20 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{BSPro - A First Bachelor Semester Project in BiCS-land\\
+\title{Microservices Architecture on Energy4Life Monolithic Application\\
 {\small \today~-~\currenttime}}
 
  
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
-\author{\IEEEauthorblockN{Motivated Student}
+\author{\IEEEauthorblockN{Kevin L.\ Biewesch}
 \IEEEauthorblockA{University of Luxembourg\\
-Email: motivated.student@uni.lu}
+Email: kevin.biewesch.001@student.uni.lu}
 \and 
-\IEEEauthorblockN{Motivated Tutor}
+\IEEEauthorblockN{Alfredo Capozucca}
 \IEEEauthorblockA{University of Luxembourg\\
-Email: motivated.tutor@uni.lu}%
+Email: alfredo.capozucca@uni.lu}%
 }
 
 % conference papers do not typically use \thanks and this command
