@@ -77,7 +77,7 @@ This approach also brings a different mindset into development. Instead of focus
 
 ## Decentralized Data Management
 
-Monolithic applications usually prefer to have a single logical database for persistent data, which in turn are then often used across a range of applications. Microservices on the other hand let each serivce manage its own database. Both are illustrated in the following figure.
+Monolithic applications usually prefer to have a single logical database for persistent data, which in turn are then often used across a range of applications. Microservices on the other hand let each service manage its own database. Both are illustrated in the following figure.
 
 ![Monolith and Microservice Databases](https://martinfowler.com/articles/microservices/images/decentralised-data.png)
 
