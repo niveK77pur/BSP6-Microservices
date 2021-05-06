@@ -236,6 +236,7 @@ potentially also be used by other developers to solve similar
 problems.
 
 \subsubsection{Decentralized Data Management} 
+\label{sec:decentralized}
 
 Monolithic applications usually prefer to have a single logical
 database for persistent data, which in turn are then often used across
@@ -259,6 +260,7 @@ demands.
 \end{figure}
 
 \subsubsection{Infrastructure Automation}
+\label{sec:infrastructure-automation}
 
 Many products following the \gls{ms} architecture make heavy use of
 \gls{cicd} and infrastructure automation tools. This becomes
@@ -267,6 +269,7 @@ different \glspl{ms} at once, which simply becomes infeasible without
 the automation.
 
 \subsubsection{Design for failure}
+\label{sec:design-for-failure}
 
 One needs to take into consideration that a service may fail at any
 point in time for whatever reason, and the client should respond to
@@ -285,6 +288,33 @@ monitoring and logging on various parts of a service are performed.
 % Provide any objective elements to assess that your deliverables do or do not satisfy the requirements described above. 
 % }
 
-\KB{Talk about drawbacks}
+Given all the above, there are drawbacks that come with the
+microservice architecture. As already pointed out previously in
+section \nameref{sec:design-for-failure}, a service can fail at any point
+in time which makes it quite difficult to build distributed systems.
+Added to this, remote call are slow which can also have an impact of
+the final product's performance. Another drawback that we discussed
+previously is the issue of eventual consistency as mentioned in section
+\nameref{sec:decentralized}.
 
-\KB{Highlight elements pointing to TD}
+As slightly touched upon in the
+\nameref{sec:infrastructure-automation} section, we will run into the
+issue of \textit{operational complexity}\footnote{while small
+	independent services are easy to deploy, the number of services adds
+strain to the complexity regarding operations}, demanding a mature
+operations team to manage lots of services, which are being redeployed
+regularly. A product consisting of half-a-dozen applications can
+quickly expand into hundreds of little microservices.
+\cite{ms-trade-off}
+
+Here, the role of DevOps comes into play to ease this whole process.
+It becomes increasingly harder, tedious and eventually impossible to
+manage an increasing number of services which also calls for a lot of
+automation and monitoring to take place. Given that \glspl{ms} are
+smaller and thus easier to understand, problems are likely to occur in
+the interconnections of such services which potentially makes it very
+difficult to trace and debug issues---hence the need for proper and
+elaborate monitoring.
+
+
+\KB{Highlight elements pointing to TD?}
