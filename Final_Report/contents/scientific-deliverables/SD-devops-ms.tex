@@ -14,14 +14,150 @@ talk about threats to the validity of our discussions.
 
 \subsection{Design}
 
-\KB{Talk about characteristics of DevOps and \gls{ms}}
+\subsubsection{Relevant aspects of microservices}
+
+In section \vref{sd:ms} we have introduced characteristics that
+generally make up a \gls{ms}. We shall briefly touch upon some of the
+ideas again and give a bit more insight that is relevant for our
+comparison with DevOps.
+
+\paragraph{Rapid provisioning}
+
+To be able to rapidly launch a server---within a few hours for
+instance---it is important to automate the process of
+provisioning\footnote{this is the process of adding and configuring
+tools to a virtual machine}. To make serious use MSs, one should
+strive for a fully automated process---as far as this is possible.
+
+\paragraph{Basic monitoring}
+
+Due to loosely-coupled services working together in production, things
+are bound to go wrong in ways that are difficult to detect in test
+environments. It is therefore of utmost importance to make sure
+serious problems---appearing through technical as well as business
+issues---are detected swiftly.
+
+\textit{Technical issues} could encompass run-time errors, or service
+availability. \textit{Business issues} can be related to a drop in orders, or
+problems with sending transactions through multiple services.
+
+\paragraph{Rapid application deployment}
+
+A pipeline comprises the building, testing and deploying of an
+application which are steps that tend to take a long time to run
+through. The idea is to break up these steps and the tasks within them
+into stages. While it will add extra time to run through, we benefit
+from from greater confidence because early stages can detect problems
+that may have devastating effects later down the road. Later stages,
+in turn, can make more in-depth testing to gain extra confidence in
+the finial product. Stages in a pipeline can be automated or require
+manual intervention and may even be parallelized---if applicable---to
+speed up the process. Deployment pipelines are in fact a central part
+of \gls{cicd}. \cite{pipelines}
+
+Deployment usually involves a pipeline with various steps, each
+providing some sort of validation of the product.  With many services
+to manage, this pipeline should striven to be fully automated.
+Achieving this implies close collaboration between developers and
+operations: the \textit{DevOps Culture} \cite{devops-culture}.
+
+\subsubsection{Relevant aspects of DevOps}
+
+Let us now have a look at the DevOps culture before drawing out the
+relations that exist between the \gls{ms} and DevOps philosophies. We
+will again have a look at aspects that are relevant to us but
+nonetheless do not obfuscate the overall approach that DevOps
+seeks to follow.
+
+\paragraph{The DevOps approach}
+
+Traditionally software development is broken down into distinct
+categories such as requirements analysis, testing and development as
+well as deployment, operations and maintenance once the product is
+released. DevOps aims that merging these categories and favour
+collaboration between \textbf{dev}elopment and
+\textbf{op}eration\textbf{s}.
+
+\paragraph{Shared responsibilities}
+
+A side effect of the DevOps approach are the \textit{shared
+responsibilities}, encouraging closer collaboration. As briefly
+mentioned in the \nameref{sec:business-capabilities} section, now that
+developers and operators are working under the same hood, the former
+is much more inclined to adapt a mindset of finding ways to simplify
+deployment and maintenance since they are closely involved with the
+tasks of the operators. If the development team were to just hand over
+the finished product and not worry about it anymore, they would not
+see the difficulties operators might need to face in light of their
+productions.
+
+\paragraph{Quality of productions}
+
+Given that each party is more involved in each other's tasks, this
+leads to better understanding of the processes and issues which
+developers and operators need to tackle. This allows for much more
+efficient problem solving and leads to teams needing to value building
+quality into the development process. The aim being to automate the
+deployments and speeding up the testing cycle which results in greater
+ease of putting code into production.
+
+\paragraph{Automation}
+
+Automation is an important factor in all of the above. For one,
+automated tasks---such as testing, configuration and deployment---free
+staff of these burdens and reduce human error. Another point is that
+the automation scripts essentially serve as useful and up-to-date
+documentation of the system. Should, for example, a developer or
+operator want to inspect or change how a server is configured, they
+know where to look.
 
 \subsection{Production}
 
-\KB{Make the connection between both concepts}
+Given the above points and a few of the characteristics of MSs, one
+could derive the implication that DevOps is an inherent aspect that
+comes along with the microservice philosophy. The two points that lead
+us to this assumption were the \nameref{sec:business-capabilities} and
+\nameref{sec:infrastructure-automation} characteristics of \glspl{ms}.
+
+The infrastructure automation becomes increasingly relevant if our
+network of MSs expands. Managing only a handful of services by hand
+can still be feasible, but if we have a few dozens or more services
+this quickly becomes a virtually impossible task as we would need to
+take care of each of the countless services individually. As for the
+DevOps side of things, in order to increase production speed the
+automation is an equally important factor. Not only does it free the
+staff of work, but it also reduces human error---which seems likely to
+seep in when managing lots of services in parallel. These viewpoints
+on automation allow us to draw an assumption on how the DevOps
+approach is vital in order to make working with microservices a
+feasible task.
+
+The second point is that the automation scripts serve as useful and
+up-to-date documentation of the system. This is very useful in that
+both developers and operators can inspect these scripts and be on the
+same page with regards to how the system is built and works. This
+directly leads us to the MS characteristic of \textit{organizing
+around business capabilities}. The fact that we do not split our teams
+according to application layers---as is usually the case for
+monoliths---but rather according to functionalities greatly favours
+collaboration of each application layer's expert. The automation
+scripts coming forth through the DevOps aspect serve in this regard as
+a bridge to ease this collaboration among team members and thus help
+further boost and encourage the idea of organising in terms of
+functionalities rather than isolated application layers.
 
 \subsection{Assessment}
 
-\KB{Threats to validity of the discussion in production section}
+Possible threats to validity of the above discussion and assumptions
+stem from the fact that they were drawn with disregard to the
+technologies. Merely the researched material presented until this
+point were taken into consideration.  Further, we did not have the
+opportunity to experiment with this organisation of teams in practice,
+which would surely provide a much better insight and grounds for our
+assumptions.  That said, given more expertise on how \glspl{ms} and
+DevOps work in practice might give a more precise and elaborate
+answer.
+
+% \KB{Threats to validity of the discussion in production section}
 
 \KB{Highlight elements pointing to TD}

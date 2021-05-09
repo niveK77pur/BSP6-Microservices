@@ -25,6 +25,107 @@ judgement on how easy it was to deploy the \gls{ms} given the current
 
 \subsection{Design}
 
+\subsubsection{Set up repository}
+
+The first step was to set up a repository in which we could place our
+productions. I had to request an account in order to access the
+\url{https://gitlab.uni.lu} GitLab service. An interesting thing to
+note at this point being that this GitLab service will host our
+\gls{ms} code on a different server from the one that contains the
+\gls{e4l} code. Thus we can further verify the independence of such
+services.
+
+\subsubsection{Familiarize with docker}
+
+We then had to get familiar with the \textit{docker} utility and how
+to create and manage containers with it. This tool is what would
+effectively allow us to create isolated services by containerising our
+application into a docker container.
+
+The rationale behind using docker instead of simply running a process
+comes back to the points mentioned in the
+\nameref{sec:componentization} section. Simple processes would not
+enforce the \gls{ms} architecture as much as containers would, thus
+allowing for development to shift into a monolithic architecture.
+
+At a later stage we also inspected the \textit{docker-compose}
+utility which allows for finer and more automated management of
+containers.
+
+\subsubsection{Familiarize with CI/CD}
+
+In order to automate the deployment of our application, we want to
+take advantage of GitLab's \gls{cicd} framework. At this point in time
+our \gls{ms} was not fully functioning yet and we were simply
+experimenting with dummy code. The main goal here was to understand
+how it works and what it does.
+
+Creating the actual pipeline for our finished \gls{ms} was only the
+very last step of the process. The rationale is that automating such a
+procedure can only be done if one is familiar with the steps that
+would otherwise need to be done manually. Therefore it was important
+to work out everything by hand before finalizing with an automated
+pipeline.
+
+\subsubsection{Obtain data from E4L}
+
+Since our \gls{ms} would display a graph using data from \gls{e4l}
+responses, we had to find out how to extract this information. Finding
+this out was quite an extensive process in itself since the hints were
+not too clearly laid out in the documentations. More details will be
+provided in the production.
+
+To give an outline, our first attempt was to sort of brute-force our way
+into obtain data. While not the most useful of data, it was something
+to work with. Only later have we discovered that \gls{e4l} exposes an
+API which greatly alleviates the burden of our brute-force approach.
+
+Obtaining useful data however, was only achievable thanks to the help
+and guidance of a prior team member of \gls{e4l} who had great
+responsibility in creating the back-end. He showed me the proper way to
+obtain all the data from the API as well as by directly connecting to
+the \gls{e4l} database.
+
+\subsubsection{Write code which retrieves data and displays it}
+
+For this purpose we relied on productions made during my summer job
+where I was responsible for finding ways to plot graphs. For the sake
+of simplicity we used Python to write this code. It should be noted
+that this and the previous step of obtaining data were always running
+in parallel.
+
+In the end, it was simply a matter of retrieving the data from the API
+or the database, and then to plot some data using example code
+produced during the summer job. It should further be noted that we
+were not deeply interested in \textit{what} data is being displayed, it should
+rather serve as a proof of concept for our purpose.
+
+\subsubsection{Containerize and deploy the application}
+
+Once the application was working locally, we attempted to make it run
+inside a docker container. Note that only the version retrieving data
+from the API was used for experimenting this way. The database version
+is analogous and did not require great modifications. Further it had a
+restriction where the database was only accessible to certain docker
+containers running on the server where the database lives. We will
+provide more details in the production.
+
+Containerizing the application came with a fair share of issues
+however both locally as well as once deployed on the testing server.
+Work-arounds and fixes were implemented an resulted in a fully
+functional service.
+
+\subsubsection{Create pipeline to automate deployment}
+
+The final step was to create a pipeline that automates the whole
+process. Since we were making a Python application, there were no
+building stages that had to be made in the pipeline. Thus we only
+ended up with a deployment stage which was very short thanks to the
+docker-compose utility taking care of everything. One could possibly
+add a testing stage to verify availability of \gls{e4l}---since our
+\gls{ms} cannot run without being able to probe \gls{e4l} for
+data---but this was not implemented for this project.
+
 \KB{Methodlogy: Steps required to achieve final solution}
 
 \subsection{Production}
@@ -33,4 +134,5 @@ judgement on how easy it was to deploy the \gls{ms} given the current
 
 \subsection{Assessment}
 
-\KB{Was is easy to deploy \gls{ms}?}
+\KB{Was is easy to deploy \gls{ms}? Flaws in the service that still
+need to be treated? (i.e. availability of \gls{e4l})}
