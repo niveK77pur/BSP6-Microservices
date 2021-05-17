@@ -1,21 +1,71 @@
-{\color{gray}
 \subsection{Targeted Deliverables}
 \label{sec-deliverables}
-\subsubsection{Scientific deliverables}
-Provide a synthetic and abstract description of the scientific deliverables that were targeted to be produced. 
-Each BSP must contain some work done according to the principles of the scientific method. It basically means that you should define at least one question related to the knowledge domain of your BSP and follow part of the scientific method process to answer to this question. The description of the work done to answer this question is a scientific deliverable.
 
-Examples of question could be:
-\begin{itemize}
-	\item Is Python an adequate language for concurrent programs?
-	\item How can we measure the ergonomic of a graphical user interface?
-	\item How can we ensure that a program will not fail?
-\end{itemize}
+Here we will present how the deliverables are related to each other.
+This allows us to briefly present each deliverable as well as why it
+is relevant and was delved into. Let us start with the technical
+deliverable.
 
-An answer to such question should be the result of applying partly or totally the scientific method according to its standard definition which can be found in the literature.
+\KB{include mindmap}
 
-As you can see in this template, the scientific deliverable is entirely separated from the technical deliverable. Of course it addresses a question more or less closely related to the technical deliverable. 
+\KB{rely on E4L use-case; understand \gls{ms} \& work with GL; etc} 
 
 \subsubsection{Technical deliverables}
-Provide a synthetic and abstract description of the technical deliverables that were targeted to be produced. 
-}
+
+The main goal of our technical deliverable was to inspect how easy it
+is to deploy a \gls{ms} given the \gls{e4l} application---which is an
+existing monolithic application \KB{MONOLITHIC should be an
+	assumption: list evidence leading to assumption + how it affected
+engineering of MS}. This technical deliverable will dive into the whole
+process that we went through from the beginning until the moment we
+had the final \gls{ms} up and running alongside \gls{e4l}. \KB{define
+methodology for conducting experiments}
+
+However, before being able to fully realise this task there were some
+notions that we needed to acquire and get familiar with. First of all,
+what even is a \gls{ms}? Further, given that we were working using
+GitLab and wanted to take advantage of its \gls{cicd} framework, we
+naturally wanted to find out how the concepts of DevOps and \glspl{ms}
+are related---since \gls{cicd} is also employed in the DevOps context.
+
+
+% {\color{gray}
+% Provide a synthetic and abstract description of the technical deliverables that were targeted to be produced. 
+% }
+
+\subsubsection{Scientific deliverables}
+
+The first scientific deliverable therefore consists in inspecting
+what a \gls{ms} is. Given how \glspl{ms} are a fundamental part of of
+this \gls{bsp} it was essential to learn about them and what is
+considered to be a \gls{ms}. Once we had this notion we could expand
+on it and construct a meaningful service.
+
+The second deliverable consisted in finding out how DevOps plays a
+role in the \gls{ms} philosophy. There were indeed quite a few aspects
+that hinted at a correlation but we wanted to find out where and how
+both interplay. This in turn would directly feed back into the
+technical deliverable as we would obtain a better overview on the
+overall structure and approach.
+
+The \gls{ms} part was of importance in order to actually create the
+service in question, while the DevOps side allowed us to automate our
+solution and take care of the many manual steps needed to finally
+deploy an application---which would be of great importance if we start
+to manage more than one \gls{ms}.
+
+% {\color{gray}
+% Provide a synthetic and abstract description of the scientific deliverables that were targeted to be produced. 
+% Each BSP must contain some work done according to the principles of the scientific method. It basically means that you should define at least one question related to the knowledge domain of your BSP and follow part of the scientific method process to answer to this question. The description of the work done to answer this question is a scientific deliverable.
+
+% Examples of question could be:
+% \begin{itemize}
+%   \item Is Python an adequate language for concurrent programs?
+%   \item How can we measure the ergonomic of a graphical user interface?
+%   \item How can we ensure that a program will not fail?
+% \end{itemize}
+
+% An answer to such question should be the result of applying partly or totally the scientific method according to its standard definition which can be found in the literature.
+
+% As you can see in this template, the scientific deliverable is entirely separated from the technical deliverable. Of course it addresses a question more or less closely related to the technical deliverable. 
+% }
