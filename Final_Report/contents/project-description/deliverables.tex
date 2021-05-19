@@ -8,18 +8,49 @@ deliverable.
 
 \KB{include mindmap}
 
-\KB{rely on E4L use-case; understand \gls{ms} \& work with GL; etc} 
+% \KB{rely on E4L use-case; understand \gls{ms} \& work with GL; etc} 
 
 \subsubsection{Technical deliverables}
 
 The main goal of our technical deliverable was to inspect how easy it
-is to deploy a \gls{ms} given the \gls{e4l} application---which is an
-existing monolithic application \KB{MONOLITHIC should be an
-	assumption: list evidence leading to assumption + how it affected
-engineering of MS}. This technical deliverable will dive into the whole
-process that we went through from the beginning until the moment we
-had the final \gls{ms} up and running alongside \gls{e4l}. \KB{define
-methodology for conducting experiments}
+is to deploy a \gls{ms} given the \gls{e4l} application---which we
+assume to be a monolithic application. Given the research presented in
+section \vref{sd:ms}, we concluded that \gls{ms} would not be fitting
+the architecture. Prior to working on this \gls{bsp}---as well as was
+discovered and confirmed during the project while inspecting the
+\gls{e4l} code---it was known that this application had the typical
+front-end, back-end and database structure. There was also no notion
+of services in the \gls{ms}-sense of the word.
+
+% \KB{MONOLITHIC should be an assumption: list evidence leading to
+% assumption + how it affected engineering of MS}.
+
+Due to the fact that \glspl{ms} are supposed to be isolated
+components, it was clear from the start that we should not modify the
+original \gls{e4l} code for our purposes. In fact, given our use-case
+of plotting an arbitrary graph using data provided by \gls{e4l}, our
+best bet would be to rely on an API that is exposed or to connect to
+its database directly. The worst scenario would be one where neither
+were available; in this case we would have no other choice but
+to make our own API by modifying the \gls{e4l} code or by creating a
+wrapper around other functionality that is exposed by \gls{e4l}.
+
+This technical deliverable will dive into the whole process that we
+went through from the beginning until the moment we had the final
+\gls{ms} up and running alongside \gls{e4l}. The way we conducted the
+experiments at every step was a very iterative process. A little
+research on a given matter would help us get familiar with a
+particular topic as well as how to approach the implementation. We
+would then create a dummy code to test said features and keep it
+around as a reference in case something breaks in the main
+implementation. From there it was a matter of fixing issues that arose
+as well as adapting and refining the solution until we obtained the
+product we sought to create. If further features were required, we
+introduced them step by step by following this iterative process which
+was accompanied by lots of dummy implementations for reference and
+testing.
+
+% \KB{define methodology for conducting experiments}
 
 However, before being able to fully realise this task there were some
 notions that we needed to acquire and get familiar with. First of all,
