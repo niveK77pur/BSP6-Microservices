@@ -1,6 +1,7 @@
 \refstepcounter{tdel}
 \section{Technical Deliverable \thetdel\ -- Does E4L allow for easy
 deployment of adjacent Microservices?}
+\label{td:ms}
 
 \subsection{Requirements}
 
@@ -12,9 +13,17 @@ adjacent \gls{ms} application.
 The \gls{ms} to be created should allow us to test the hypothesis that
 \glspl{ms} are easy to create and deploy. Further, it should fit into
 our \gls{e4l} case study---we will have our service display a graph
-based on data collected by the \gls{e4l} application.  To close
+based on data collected by the \gls{e4l} application; figure
+\vref{fig:dash-api} shows an example of our graph.  To close
 everything off, we shall also create a GitLab pipeline that automates
 the deployment of this \gls{ms}.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=\linewidth]{images/dash-API-demo.png}
+	\caption{\gls{ms} graph relying on \gls{e4l} API}
+	\label{fig:dash-api}
+\end{figure*}
 
 Hence, the design section will tackle all the steps we had to
 undertake in order to reach the final and fully automated deployment
@@ -261,7 +270,19 @@ our docker-compose file in order to be able to reach the database on
 Juno. Once this was done, we used a Python SQL library to connect to
 the database and perform queries. This approach however was not
 directly possible to be done by hand as we were sort of restricted by
-the docker network for accessing the database. 
+the docker network for accessing the database. Figure
+\vref{fig:dash-db} shows an example graph using data from the
+database. One should note again that the data plotted does not
+necessarily bear meaning, the main goal was for this to be a proof of
+concept. You can also see that we plot different types of graphs to
+avoid confusing the API and database versions.
+
+\begin{figure*}
+	\centering
+	\includegraphics[width=\linewidth]{images/dash-DB-demo.png}
+	\caption{\gls{ms} graph relying on \gls{e4l} DB}
+	\label{fig:dash-db}
+\end{figure*}
 
 \subsubsection{Containerize the application}
 

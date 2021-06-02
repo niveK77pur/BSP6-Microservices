@@ -1,24 +1,82 @@
 \subsection{Domains}
 
-\KB{Not too sure what to write here?}
+% \KB{Not too sure what to write here?}
+
+Our \gls{bsp} lives in the software engineering domain, both for the
+scientific and technical parts. In the scientific part we will briefly
+explore the concepts and their relations that were of interest in this
+project. In the technical domains we shall briefly present the tools
+that we used to achieve our implementation and how they were relevant.
 
 \subsubsection{Scientific}
-{\color{gray}
-Provide a description of the scientific domain(s) in which the project is being made.
-}
+% {\color{gray}
+% Provide a description of the scientific domain(s) in which the project is being made.
+% }
 
-\KB{The scientific domain concerns software engineering and the DevOps
-philosophy. We will briefly present the DevOps' focus on automation.
-This will be of interest for the technical domain.}
+% \KB{The scientific domain concerns software engineering and the DevOps
+% philosophy. We will briefly present the DevOps' focus on automation.
+% This will be of interest for the technical domain.}
+
+In order to build software, there are steps preceding the actual
+production that have a huge impact on the overall product---be it from
+the user, developer or operator point of view. Creating software
+consists among other things in finding both the functional and
+non-functional requirements. At a later point we also need to start
+\textit{designing}. This phase is where we make decisions---about the
+product---that should ultimately lead to fulfilling the requirements.
+One should also think about methods and techniques that will aid in
+this endeavour and think long term about the software life cycle.
+
+One way to structure our software is by using the \gls{ms}
+architecture which structures everything into services---as will be
+discussed in section \vref{sd:ms}. Another possibility would be a
+\textit{monolithic} architecture which would for example structure
+according to a server-client model. For this \gls{bsp} we decided to
+investigate \glspl{ms} that exist along side monoliths.
+
+Finally, in order to facilitate the managing of \glspl{ms}, we resort
+to the DevOps philosophy.\cite{devops-culture} If we have multiple
+services to manage, DevOps will allow us to make the process of
+building, deploying and maintaining the product fast and efficient.
+Particularly interesting for us is the focus on automation and the
+therefrom arising benefits as will be discussed in section
+\vref{sd:devops}.
 
 \subsubsection{Technical}
-{\color{gray}
-Provide a description of the technical domain(s) in which the project is being made.
-}
+% {\color{gray}
+% Provide a description of the technical domain(s) in which the project is being made.
+% }
 
-\KB{The technical domain also concerns software engineering but
-	focuses on software architectures, namely the \gls{ms} architecture.
-	Here we will briefly introduce what software architectures are and
-	how they impact the final product. For this we shall shortly
-introduce the monolithic and \gls{ms} style. The latter is the one we
-relied on for our technical productions.}
+We used a GitLab platform to host our code. The \gls{e4l} code is in
+fact also hosted using a GitLab platform, however it lives on a
+different GitLab instance than our \gls{ms}. Deploying the \gls{ms}
+would be done onto our Juno testing environment.
+
+To deploy our \gls{ms} we relied on docker which allows us to create
+isolated containers. Docker is in fact also what allowed us to
+properly implement the \gls{ms} in itself architecture-wise.
+
+Further, GitLab provides so-called \textit{runners} that give us the
+ability to execute tasks or commands automatically. Thus we can make
+it such that our \gls{ms} will be automatically redeployed any time we
+make a modification. The runner can either be set up locally on the
+server, or run inside a container; we ended up using the former.
+
+The actual application running in the \gls{ms} was written using
+Python. We used the \verb|dash| module to easily create a web page
+containing a graph. Further python modules were used to make HTTPS
+requests and connect to an SQL database in order to grab some data to
+be plotted.  Within the \gls{ms}, we also relied on the Linux
+\verb|crontab| utility to periodically grab new data during the
+service's life cycle. 
+
+Our technical contribution shows how one can deploy a \gls{ms} along
+side an existing monolithic application. Further technical insights
+shall be provided in section \vref{td:ms}.
+
+% \KB{The technical domain also concerns software engineering but
+%   focuses on software architectures, namely the \gls{ms} architecture.
+%   Here we will briefly introduce what software architectures are and
+%   how they impact the final product. For this we shall shortly
+% introduce the monolithic and \gls{ms} style. The latter is the one we
+% relied on for our technical productions.}
