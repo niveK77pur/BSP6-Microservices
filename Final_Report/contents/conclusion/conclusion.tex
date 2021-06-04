@@ -1,4 +1,33 @@
-{\color{gray}
+% {\color{gray}
 \section{Conclusion}
-The conclusion goes here.
-}
+
+Creating this \gls{ms} was quite a challenge, mainly due to the many
+unforeseen issues with the various tools. It is hard to say if a lot
+of these issues could have been avoided by simply using a different
+programming language than Python. It seemed like simplest for our use
+case---especially since it is the language I am most comfortable
+with---but given how the original \gls{e4l} code was written in Java
+and did not seem to have faced similar problems, there is reason to
+suspect the Python libraries we used had some trouble coping with our
+setting.
+
+Overlooking the numerous roadblocks, the process of creating the
+\gls{ms} was rather straightforward. This was further boosted by the
+clear boundaries between the monolith and the service, which avoided
+us from having to dive in to the \gls{e4l} code in order to integrate
+our functionality. We were therefore able to implement our service
+without too much regard to the original code base. The end result of
+having an automated pipeline further eases the production greatly---now
+modifications will automatically be deployed without manual
+intervention.
+
+One should note however, that we worked in a very simplified and
+almost \emph{sandbox-like} setting with only a single \gls{ms} coupled to
+a monolith. We did not have to worry about managing multiple
+\glspl{ms} and deal with all the complexities that stem from this. It
+would thus be interesting to further investigate how \glspl{ms} would
+behave in a more real setting where a lot of interplay between a
+greater network of services needs to be taken care of.
+
+% The conclusion goes here.
+% }

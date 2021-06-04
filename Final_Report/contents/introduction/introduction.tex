@@ -27,6 +27,34 @@ Essentially, a single application is broken up into smaller services
 each running in its own process and inter-communicating using light
 mechanisms.  \cite{ms-arch-study}
 
+Prominent benefits brought by the \gls{ms} architecture are the
+scalability of a product, the delegation of responsibilities to
+independent teams\footnote{We also refer to it as \textit{organising
+around business capabilities} \cite{ms-definition}} and great support
+for DevOps. \cite{ms-migration} One should not hide the fact however,
+that \gls{ms} are generally perceived to be quite difficult to deal
+with. Migrating existing software to \glspl{ms} requires more
+experienced developers and overall, this architectural style brings
+its own set of challenges due to its inherent complexity.
+\cite{ms-pains-gains} All things considered, the rather large
+investments that need to be made by companies pay off rather quickly
+within a span of one to three years which is directly attributed to
+the long-term effects of \glspl{ms}---most notably the
+maintainability, scalability and reduced complexity of an evolving
+product. \cite{ms-migration}
+
+Over the course of this \gls{bsp} we attempted not to restructure an
+existing monolithic application into \glspl{ms} but rather to create
+an independent service that will live along side the monolith. We used
+the \gls{e4l} application for our case study where the adjacent
+\gls{ms} would display arbitrary information from the
+application's database.
+
+Our scientific productions count the inspection of what a \gls{ms} is,
+followed by how DevOps plays a role in this architectural style. The
+technical production will tackle the whole process we went through in
+order to create our \gls{ms} in question.
+
 % {\color{gray}
 
 % This paper presents the bachelor semester project made by Motivated Student together with Motivated Tutor as his motivated tutor.
