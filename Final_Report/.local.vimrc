@@ -5,6 +5,7 @@ iabbrev MS   \gls{ms}
 iabbrev MSS  \glspl{ms}
 iabbrev e4l  \gls{e4l}
 iabbrev cicd \gls{cicd}
+iabbrev sos  \gls{sos}
 
 iabbrev DO DevOps
 

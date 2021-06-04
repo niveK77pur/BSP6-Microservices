@@ -153,11 +153,11 @@ avoid this by using explicit remote call mechanisms.
 \label{sec:business-capabilities}
 
 Traditionally, splitting a large application into parts is done by
-assigning a specialized team to each layer of the application, as
-illustrated in figure \ref{fig:conway}. This distribution of work force
-eventually leads to each team worrying only about their specific task
-instead of the application as a whole, which is an example of
-\textit{Conway's Law}:  
+assigning a specialized team to each vertical layer of the application
+\cite{ms-challenges}, as illustrated in figure \ref{fig:conway}. This
+distribution of work force eventually leads to each team worrying only
+about their specific task instead of the application as a whole, which
+is an example of \textit{Conway's Law}:  
 
 \begin{quote}
 	Any organization that designs a system (defined broadly) will
@@ -310,6 +310,11 @@ operations team to manage lots of services, which are being redeployed
 regularly. A product consisting of half-a-dozen applications can
 quickly expand into hundreds of little microservices.
 \cite{ms-trade-off}
+
+We can see that working with \glspl{ms} is not a simple task.
+\cite{ms-arch-study} There are in fact many more aspects stemming from
+\glspl{ms} that cause complications in the development of such systems
+\cite{ms-pains-gains} which we shall not dive into in this report.
 
 Here, the role of DevOps comes into play to ease this whole process.
 It becomes increasingly harder, tedious and eventually impossible to

@@ -1,14 +1,42 @@
-{\color{gray}
 \section{Introduction (± 5\% of total words)}
 
-This paper presents the bachelor semester project made by Motivated Student together with Motivated Tutor as his motivated tutor.
-It presents the scientific and technical dimensions of the work done. All the words written here have been newly created by the authors and if some sequence of words or any graphic information created by others are included then it is explicitly indicated the original reference to the work reused. 
+Traditionally, when developing software the most common way to
+approach it is by making a monolithic application.
+\cite{ms-challenges} This entails that the developer teams are split
+vertically \cite{ms-challenges} according to application layers
+\cite{ms-definition}---for instance one party will be responsible
+solely for the database, yet another will take care of the actual
+server capabilities (i.e. the back-end) and the last one will handle
+the front-end which the end-user of the product is presented with.
 
-This report separates explicitly the scientific work from the technical one. In deed each BSP must cover those two dimensions with a constrained balance  (cf. \cite{bics-bsp-reference-document}). Thus it is up to the Motivated Tutor and Motivated Student to ensure that the deliverables belonging to each dimension are clearly stated. As an example, a project whose title would be ``A multi-user game for multi-touch devices'' could define as scientific~\cite{armstrong2017guidelinesforscience} deliverables the following ones:
-\begin{itemize}
-	\item Study of concurrency models and their implementation
-	\item Study of ergonomics in human-computer interaction
-\end{itemize}
+However, this way of structuring the application and thus the
+production has its downsides. A survey conducted on \gls{sos}
+architecting \cite{sos-survey} revealed that there were a notable
+amount of occurrences where teams from different disciplines made
+independent decisions---which could be problematic for monolithic
+architectures as described above. As a matter of fact, the results
+suggested that integration problems arise very frequently if separate
+teams make independent architectural decisions. \cite{sos-survey}
+Beyond this, there is generally a lack of flexibility and scalability
+that arises through the monolithic architecture. \cite{ms-challenges}
 
-The length of the report should be from 6000 to 8000 words excluding images and annexes. The sections presenting the technical and scientific deliverables represent ± 80\% of total words of the report.
-}
+The \gls{ms} architecture aims to tackle these issues
+\cite{ms-challenges} by favoring a very different approach to
+development---which will be discussed in section \vref{sd:ms}.
+Essentially, a single application is broken up into smaller services
+each running in its own process and inter-communicating using light
+mechanisms.  \cite{ms-arch-study}
+
+% {\color{gray}
+
+% This paper presents the bachelor semester project made by Motivated Student together with Motivated Tutor as his motivated tutor.
+% It presents the scientific and technical dimensions of the work done. All the words written here have been newly created by the authors and if some sequence of words or any graphic information created by others are included then it is explicitly indicated the original reference to the work reused. 
+
+% This report separates explicitly the scientific work from the technical one. In deed each BSP must cover those two dimensions with a constrained balance  (cf. \cite{bics-bsp-reference-document}). Thus it is up to the Motivated Tutor and Motivated Student to ensure that the deliverables belonging to each dimension are clearly stated. As an example, a project whose title would be ``A multi-user game for multi-touch devices'' could define as scientific~\cite{armstrong2017guidelinesforscience} deliverables the following ones:
+% \begin{itemize}
+%   \item Study of concurrency models and their implementation
+%   \item Study of ergonomics in human-computer interaction
+% \end{itemize}
+
+% The length of the report should be from 6000 to 8000 words excluding images and annexes. The sections presenting the technical and scientific deliverables represent ± 80\% of total words of the report.
+% }
