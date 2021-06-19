@@ -17,7 +17,7 @@ talk about threats to the validity of our discussions.
 
 \subsubsection{Relevant aspects of microservices}
 
-In section \vref{sd:ms} we have introduced characteristics that
+In section \ref{sd:ms} we have introduced characteristics that
 generally make up a \gls{ms}. We shall briefly touch upon some of the
 ideas again and give a bit more insight that is relevant for our
 comparison with DevOps.
@@ -27,7 +27,7 @@ comparison with DevOps.
 To be able to rapidly launch a server---within a few hours for
 instance---it is important to automate the process of
 provisioning\footnote{this is the process of adding and configuring
-tools to a virtual machine}. To make serious use MSs, one should
+tools onto a virtual machine}. To make serious use MSs, one should
 strive for a fully automated process---as far as this is possible.
 \cite{ms-prereq}
 
@@ -37,7 +37,7 @@ Due to loosely-coupled services working together in production, things
 are bound to go wrong in ways that are difficult to detect in test
 environments. It is therefore of utmost importance to make sure
 serious problems---appearing through technical as well as business
-issues---are detected swiftly.
+issues---are detected swiftly. \cite{ms-prereq}
 
 \textit{Technical issues} could encompass run-time errors, or service
 availability. \textit{Business issues} can be related to a drop in orders, or
@@ -67,17 +67,17 @@ developers and operations: the \textit{DevOps Culture}. \cite{ms-prereq}
 \subsubsection{Relevant aspects of DevOps}
 
 Let us now have a look at the DevOps culture before drawing out the
-relations that exist between the \gls{ms} and DevOps philosophies. We
-will again have a look at aspects that are relevant to us but
-nonetheless do not obfuscate the overall approach that DevOps
-seeks to follow.
+relations that exist between the \gls{ms} and DevOps philosophies.
+\KB{Remove next sentence?} We will again have a look at aspects that
+are relevant to us but nonetheless do not obfuscate the overall
+approach that DevOps seeks to follow.
 
 \paragraph{The DevOps approach}
 
 Traditionally software development is broken down into distinct
 categories such as requirements analysis, testing and development as
 well as deployment, operations and maintenance once the product is
-released. DevOps aims that merging these categories and favour
+released. DevOps aims to merge these categories and favour
 collaboration between \textbf{dev}elopment and
 \textbf{op}eration\textbf{s}. \cite{devops-culture}
 
@@ -100,7 +100,7 @@ Given that each party is more involved in each other's tasks, this
 leads to better understanding of the processes and issues which
 developers and operators need to tackle. This allows for much more
 efficient problem solving and leads to teams needing to value building
-quality into the development process. The aim being to automate the
+quality into the development process. The ultimate goal is to automate the
 deployments and speeding up the testing cycle which results in greater
 ease of putting code into production. \cite{devops-culture}
 
@@ -117,8 +117,8 @@ know where to look. \cite{devops-culture}
 \subsection{Production}
 
 Given the above points and a few of the characteristics of MSs, one
-could derive the implication that DevOps is an inherent aspect that
-comes along with the microservice philosophy. The two points that lead
+could derive the implication that DevOps is an inherent aspect
+of the microservice philosophy. The two points that lead
 us to this assumption were the \nameref{sec:business-capabilities} and
 \nameref{sec:infrastructure-automation} characteristics of \glspl{ms}.
 
@@ -163,4 +163,4 @@ answer.
 
 % \KB{Threats to validity of the discussion in production section}
 
-\KB{Highlight elements pointing to TD}
+% \KB{Highlight elements pointing to TD}

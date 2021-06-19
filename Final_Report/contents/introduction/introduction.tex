@@ -1,37 +1,43 @@
-\section{Introduction (± 5\% of total words)}
+\section{Introduction}% (± 5\% of total words)}
 
 Traditionally, when developing software the most common way to
-approach it is by making a monolithic application.
-\cite{ms-challenges} This entails that the developer teams are split
-vertically \cite{ms-challenges} according to application layers
-\cite{ms-definition}---for instance one party will be responsible
+approach it is by making a monolithic\footnote{The application is
+built using a single unit, thus everything ends up and runs in a
+single executable.} application.
+\cite{ms-challenges} This entails that the developer teams are
+organised according to application layers
+\cite{ms-definition,ms-challenges}---for instance\footnote{See section
+\nameref{sec:business-capabilities}} one party will be responsible
 solely for the database, yet another will take care of the actual
 server capabilities (i.e. the back-end) and the last one will handle
 the front-end which the end-user of the product is presented with.
 
-However, this way of structuring the application and thus the
-production has its downsides. A survey conducted on \gls{sos}
-architecting \cite{sos-survey} revealed that there were a notable
-amount of occurrences where teams from different disciplines made
-independent decisions---which could be problematic for monolithic
-architectures as described above. As a matter of fact, the results
-suggested that integration problems arise very frequently if separate
-teams make independent architectural decisions. \cite{sos-survey}
-Beyond this, there is generally a lack of flexibility and scalability
-that arises through the monolithic architecture. \cite{ms-challenges}
+However, this way of structuring the application and its development
+has its downsides. A survey conducted on \gls{sos} architecting
+\cite{sos-survey} revealed that there were a notable amount of
+occurrences where teams from different disciplines made independent
+decisions---which could be problematic for monolithic architectures in
+particular. As a matter of fact, the results suggested that
+integration problems arise more frequently if separate teams---or
+separate groups within a same team---make
+independent architectural decisions. \cite{sos-survey} Beyond this,
+there is generally a lack of flexibility and scalability that arises
+through the monolithic architecture. \cite{ms-challenges}
 
 The \gls{ms} architecture aims to tackle these issues
 \cite{ms-challenges} by favoring a very different approach to
-development---which will be discussed in section \vref{sd:ms}.
-Essentially, a single application is broken up into smaller services
-each running in its own process and inter-communicating using light
+development---which will be discussed in section \ref{sd:ms}.
+Essentially, a single application is structured as a collection of small services
+each of them running independently and inter-communicating using light
 mechanisms.  \cite{ms-arch-study}
 
 Prominent benefits brought by the \gls{ms} architecture are the
-scalability of a product, the delegation of responsibilities to
-independent teams\footnote{We also refer to it as \textit{organising
-around business capabilities} \cite{ms-definition}} and great support
-for DevOps. \cite{ms-migration} One should not hide the fact however,
+scalability of a product and the delegation of responsibilities to
+independent teams\footnote{We also refer to it as
+\nameref{sec:business-capabilities} \cite{ms-definition}}. \cite{ms-migration}
+DevOps in an enabler which allows us to exploit
+the benefits brought by \glspl{ms} to the fullest.
+One should not hide the fact however,
 that \gls{ms} are generally perceived to be quite difficult to deal
 with. Migrating existing software to \glspl{ms} requires more
 experienced developers and overall, this architectural style brings
@@ -39,16 +45,16 @@ its own set of challenges due to its inherent complexity.
 \cite{ms-pains-gains} All things considered, the rather large
 investments that need to be made by companies pay off rather quickly
 within a span of one to three years which is directly attributed to
-the long-term effects of \glspl{ms}---most notably the
-maintainability, scalability and reduced complexity of an evolving
-product. \cite{ms-migration}
+the long-term effects of \glspl{ms}---most notably the maintainability
+and scalability lead to reduced complexity for an evolving product.
+\cite{ms-migration}
 
 Over the course of this \gls{bsp} we attempted not to restructure an
 existing monolithic application into \glspl{ms} but rather to create
 an independent service that will live along side the monolith. We used
 the \gls{e4l} application for our case study where the adjacent
-\gls{ms} would display arbitrary information from the
-application's database.
+\gls{ms} would display arbitrary information contained in the
+application.
 
 Our scientific productions count the inspection of what a \gls{ms} is,
 followed by how DevOps plays a role in this architectural style. The

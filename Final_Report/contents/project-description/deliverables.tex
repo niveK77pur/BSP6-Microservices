@@ -3,32 +3,45 @@
 
 Here we will present how the deliverables are related to each other.
 This allows us to briefly present each deliverable as well as why it
-is relevant and was delved into. Let us start with the technical
-deliverable.
+is relevant and was delved into. Figure \ref{fig:mindmap} shows a
+mind map of the topics of interest for this \gls{bsp}---scientific and
+technical. Let us start with the technical deliverable.
 
-\KB{include mindmap}
+\begin{figure*}
+	\centering
+	\includegraphics[width=\linewidth]{images/mindmap.png}
+	\caption{Mindmap of topics for this BSP}
+	\label{fig:mindmap}
+\end{figure*}
 
 % \KB{rely on E4L use-case; understand \gls{ms} \& work with GL; etc} 
 
 \subsubsection{Technical deliverables}
 
-The main goal of our technical deliverable was to inspect how easy it
-is to deploy a \gls{ms} given the \gls{e4l} application---which we
-assume to be a monolithic application. Given the research presented in
-section \vref{sd:ms}, we concluded that \gls{ms} would not be fitting
-the architecture. Prior to working on this \gls{bsp}---as well as was
-discovered and confirmed during the project while inspecting the
-\gls{e4l} code---it was known that this application had the typical
-front-end, back-end and database structure. There was also no notion
-of services in the \gls{ms}-sense of the word.
+The main goal of our technical deliverable was to collect empirical
+evidence about how easy it is to deploy a \gls{ms}\footnote{This point
+can be found in the bottom branch of the main subject \textit{E4L MS} in Figure
+\ref{fig:mindmap}.} given the \gls{e4l} application---which we assume
+to be a monolithic application. Given the research presented in
+section \ref{sd:ms}, we concluded that a \gls{ms} would not be fitting
+the architecture of \gls{e4l}\footnote{Laid out in the \textit{E4L}
+node in Figure \ref{fig:mindmap}}. Prior to working on this \gls{bsp}---as
+well as was discovered and confirmed during the project while
+inspecting the \gls{e4l} code---it was known that this application had
+the typical front-end, back-end and database structure. There was also
+no notion of services in the \gls{ms}-sense of the word. Hence our
+assumption of it being a monolith.
 
 % \KB{MONOLITHIC should be an assumption: list evidence leading to
 % assumption + how it affected engineering of MS}.
 
 Due to the fact that \glspl{ms} are supposed to be isolated
 components, it was clear from the start that we should not modify the
-original \gls{e4l} code for our purposes. In fact, given our use-case
-of plotting an arbitrary graph using data provided by \gls{e4l}, our
+original \gls{e4l} code for our purposes\footnote{Indicated through
+the \textit{independant} branch on the connector between the main subject
+and the \textit{MS} subtopic in figure \ref{fig:mindmap}}. In fact, given our use-case
+of plotting an arbitrary graph\footnote{Laid out in the branch
+\textit{graph} of the main subject in figure \ref{fig:mindmap}} using data provided by \gls{e4l}, our
 best bet would be to rely on an API that is exposed or to connect to
 its database directly. The worst scenario would be one where neither
 were available; in this case we would have no other choice but
@@ -38,7 +51,7 @@ wrapper around other functionality that is exposed by \gls{e4l}.
 This technical deliverable will dive into the whole process that we
 went through from the beginning until the moment we had the final
 \gls{ms} up and running alongside \gls{e4l}. The way we conducted the
-experiments at every step was a very iterative process. A little
+experiments was a very iterative process. A little
 research on a given matter would help us get familiar with a
 particular topic as well as how to approach the implementation. We
 would then create a dummy code to test said features and keep it
@@ -57,7 +70,7 @@ notions that we needed to acquire and get familiar with. First of all,
 what even is a \gls{ms}? Further, given that we were working using
 GitLab and wanted to take advantage of its \gls{cicd} framework, we
 naturally wanted to find out how the concepts of DevOps and \glspl{ms}
-are related---since \gls{cicd} is also employed in the DevOps context.
+were related---since \gls{cicd} is also employed in the DevOps context.
 
 
 % {\color{gray}
@@ -66,22 +79,25 @@ are related---since \gls{cicd} is also employed in the DevOps context.
 
 \subsubsection{Scientific deliverables}
 
-The first scientific deliverable therefore consists in inspecting
-what a \gls{ms} is. Given how \glspl{ms} are a fundamental part of of
-this \gls{bsp} it was essential to learn about them and what is
-considered to be a \gls{ms}. Once we had this notion we could expand
-on it and construct a meaningful service.
+The first scientific deliverable therefore consists in inspecting what
+a \gls{ms}\footnote{See \textit{MS} subtopic in figure
+\ref{fig:mindmap}} is. Given how this \gls{bsp} revolves around \glspl{ms},
+it was essential to learn about them and what is considered
+to be a \gls{ms}. Once we had this notion we could expand on it and
+construct a meaningful service for the technical part.
 
-The second deliverable consisted in finding out how DevOps plays a
-role in the \gls{ms} philosophy. There were indeed quite a few aspects
+The second deliverable consisted in finding out how DevOps\footnote{See
+\textit{DevOps} node in figure \ref{fig:mindmap}} plays a
+role in the \gls{ms} philosophy\footnote{This is not explicitly laid out
+in figure \ref{fig:mindmap}}. There were quite a few aspects
 that hinted at a correlation but we wanted to find out where and how
 both interplay. This in turn would directly feed back into the
 technical deliverable as we would obtain a better overview on the
 overall structure and approach.
 
 The \gls{ms} part was of importance in order to actually create the
-service in question, while the DevOps side allowed us to automate our
-solution and take care of the many manual steps needed to finally
+service in question, while the DevOps side allowed us to automate
+the development process and take care of the many manual steps needed to finally
 deploy an application---which would be of great importance if we start
 to manage more than one \gls{ms}.
 

@@ -1,5 +1,5 @@
 \refstepcounter{tdel}
-\section{Technical Deliverable \thetdel\ -- Does E4L allow for easy
+\section{Technical Deliverable -- Does E4L allow for easy
 deployment of adjacent Microservices?}
 \label{td:ms}
 
@@ -14,7 +14,7 @@ The \gls{ms} to be created should allow us to test the hypothesis that
 \glspl{ms} are easy to create and deploy. Further, it should fit into
 our \gls{e4l} case study---we will have our service display a graph
 based on data collected by the \gls{e4l} application; figure
-\vref{fig:dash-api} shows an example of our graph.  To close
+\ref{fig:dash-api} shows an example of our graph.  To close
 everything off, we shall also create a GitLab pipeline that automates
 the deployment of this \gls{ms}.
 
@@ -37,9 +37,9 @@ judgement on how easy it was to deploy the \gls{ms} given the current
 \subsubsection{Set up repository}
 
 The first step was to set up a repository in which we could place our
-productions. I had to request an account in order to access the
+productions. I had to request an HPC account in order to access the
 \url{https://gitlab.uni.lu} GitLab service. An interesting thing to
-note at this point being that this GitLab service will host our
+note at this point is that this GitLab service will host our
 \gls{ms} code on a different server from the one that contains the
 \gls{e4l} code. Thus we can further verify the independence of such
 services.
@@ -48,7 +48,7 @@ services.
 
 We then had to get familiar with the \textit{docker} utility and how
 to create and manage containers with it. This tool is what would
-effectively allow us to create isolated services by containerising our
+effectively allow us to create isolated services by \emph{containerising} our
 application into a docker container.
 
 The rationale behind using docker instead of simply running a process
@@ -61,11 +61,11 @@ At a later stage we also inspected the \textit{docker-compose}
 utility which allows for finer and more automated management of
 containers.
 
-It is also interesting to note at this point that evidence suggests
+It is interesting to note at this point that evidence suggests
 docker to be quite difficult to use and get started with for the
 average developer. Many times you would find Stack Overflow posts
 asking about very basic concepts over a broad range of disciplines and
-even the docker utility in itself. \cite{docker-so} Given that docker
+even on the docker utility itself. \cite{docker-so} Given that docker
 indeed encompasses a broad range of disciplines, it may take some time
 for specialists in one field to adapt to this new paradigm.
 
@@ -120,7 +120,7 @@ rather serve as a proof of concept for our purpose.
 
 \subsubsection{Containerize the application}
 
-Once the application was working locally, we attempted to make it run
+Once the application was working on our local machine, we attempted to make it run
 inside a docker container. Note that only the version retrieving data
 from the API was used for experimenting this way. The database version
 is analogous and did not require great modifications. Further it had a
@@ -140,19 +140,24 @@ process of deploying the application to Juno. Since we were making a
 Python application, there were no building stages that had to be made
 in the pipeline. Thus we only ended up with a deployment stage which
 was very short thanks to the docker-compose utility taking care of
-everything.
+creating and running a container with our application.
 
-\KB{Methodlogy: Steps required to achieve final solution}
+% \KB{Methodlogy: Steps required to achieve final solution}
 
 \subsection{Production}
 
 % \KB{More details on each step + difficulties encountered}
 
-\KB{screenshot showing final product: E4L page with graph}
+% \KB{screenshot showing final product: E4L page with graph}
 
-\KB{Reference \textit{replication package} in README of
-code/repository}
+% \KB{Reference \textit{replication package} in README of code/repository}
 
+Instructions on how to replicate our solution with the given artifacts
+can be found in the README contained either in the project source, or
+on our GitLab repositories\footnote{Please note that the repositories
+are private to the \texttt{AC-DevOps} group}.
+\\\url{https://gitlab.uni.lu/ac-devops/e4l-dash-api}
+\\\url{https://gitlab.uni.lu/ac-devops/e4l-dash-db}
 
 \subsubsection{Set up repository}
 
@@ -179,7 +184,7 @@ the program while building the container.
 
 Better understanding the \gls{cicd} pipeline was done in the same
 fashion as for docker, using a bunch of experiments to understand how
-it works. For instance again compiling the C program using docker, or
+it works. For instance compiling the C program using docker, or
 compiling it using the \gls{cicd} pipeline.
 
 \subsubsection{Obtain data from E4L}
@@ -212,8 +217,6 @@ the \verb|/calculate/session/{sessionId}| endpoint---which is our only
 of two GET handlers regarding the questionnaire---to obtain our
 results.
 
-\paragraph{Scraping the results page for data}
-
 One problem rose quickly however: We had no information on where or
 how to access the back-end in order to issue our GET request. Upon
 inspection in the code for both the front-end and back-end, we were
@@ -221,6 +224,8 @@ unable to find any concrete traces on how to reach it. The closest we
 managed to find was the definition of a \verb|baseUrl| using \verb|axios|,
 but that still left us clueless. So we set out to create a web scraper
 that would parse the HTML of the above results page.
+
+\paragraph{Scraping the results page for data}
 
 We used \verb|selenium| to perform this task. However, running the
 selenium browser in headless mode---as is required for running this
@@ -233,7 +238,7 @@ our use-case.
 \paragraph{Obtaining data from the back-end API}
 
 It was only after a third and final inspection of the E4L
-code---performed while documenting here what we did---with the help of
+code---performed while documenting what we did---with the help of
 GitLab's search utility, that we discovered how to access the
 back-end.  It was hidden in plain site in the front-end README,
 however it was not emphasised very well which caused us to completely
@@ -241,7 +246,7 @@ overlook it at multiple occasions.
 
 That said, we were able to retrieve our results using the API by
 issuing a GET request on
-\url{https://juno.uni.lux/e4lapi/calculate/session/MzA5.-7-sMYXmv3tXyuLQT2s1ZgULRKY}.
+\\\url{https://juno.uni.lux/e4lapi/calculate/session/MzA5.-7-sMYXmv3tXyuLQT2s1ZgULRKY}.
 However, some data about global statistics (i.e. Luxembourg, Europe,
 World) were not available as they seemed to be hard coded into the
 front-end.
@@ -252,7 +257,7 @@ A former member of \gls{e4l} helped in querying the application for
 data in the correct manner. This would also allow us to obtain data
 for all responses that were collected from the questionnaire, and not
 only those specific to our own answers. We had to perform two HTTPS
-requests with special information to make this happen.
+requests to make this happen.
 
 Connecting to the \gls{e4l} database directly worked a little
 differently however because of the way everything is setup. The
@@ -261,15 +266,15 @@ as docker images on Juno and are part of a docker network. Given that
 our solution already relied on docker, this was quite easy to
 implement: We only had to register the image to the network using
 docker-compose. Then we could simply connect to the database using
-SQL. However, some information was not available here as it was
-computed by the back-end using information from the database.
+SQL. However, some information from the API was not available here as it was
+computed by the back-end.
 
 \subsubsection{Write code which retrieves data and displays it}
 
 For the API solution on obtaining data, we simply had to include the
 corresponding HTTPS requests into the code. We can then plot a graph
 using this data. Making the graphs was done using Python Dash. As a
-little side note: obtaining the data could have been done by hand.
+little side note: obtaining the data could be done by hand.
 Writing this procedure as code allowed us essentially to automate this
 task.
 
@@ -279,7 +284,7 @@ Juno. Once this was done, we used a Python SQL library to connect to
 the database and perform queries. This approach however was not
 directly possible to be done by hand as we were sort of restricted by
 the docker network for accessing the database. Figure
-\vref{fig:dash-db} shows an example graph using data from the
+\ref{fig:dash-db} shows an example graph using data from the
 database. One should note again that the data plotted does not
 necessarily bear meaning, the main goal was for this to be a proof of
 concept. You can also see that we plot different types of graphs to
@@ -305,20 +310,20 @@ Extensive experimentation using dummy code and our actual
 solutions\footnote{We only experimented on the API version, as the
 	database version required us to work on the Juno server and the
 	issue was analogous in both solutions. It was simply a matter of
-convenience It was simply a matter of convenience.} clearly indicated
-that this issue only appeared if we query for data and launch the Dash
-application in the same script file. We further made a lot of research
-and experiments but we could not find the cause of this issue or how
-to solve it. Few resources on Dash with Docker could be found where
-the code resembled what we have created, none containing any answers
-to our problem.
+convenience.} clearly indicated that this issue only appeared if we
+query for data \emph{and} launch the Dash application in the same
+script file running \emph{inside a container}. We further made a lot
+of research and experiments but we could not find the cause of this
+issue or how to solve it. Few resources on Dash with Docker could be
+found where the code resembled what we have created; none containing
+any answers to our problem.
 
 Finally, the workaround we implemented was to simply put the query of
 data and the plotting of the graph using Dash into separate Python
 scripts which we would call one after the other. The querying would
 write the results to a file, and the Dash graph would read the
 information from this file. This effectively solved this mysterious
-issue that only appears inside a Docker container.
+issue that only appeared inside a Docker container.
 
 \subsubsection{Create pipeline to automate deployment}
 
@@ -337,9 +342,9 @@ docker-in-docker\footnote{GitLab runner executes in a docker
 container, and we deploy our container using it.} in the pipeline for
 hosting the application, we naturally tried to do the same. But here
 again we encountered an issue that is still not solved. For some
-reason docker related commands gave birth to a Python docker API
+reason docker related commands in the pipeline gave birth to a Python docker API
 exception, thus making the pipeline fail---which was not observed for
-\gls{e4l} which used the same approach.
+\gls{e4l} using the same approach.
 
 After a lot of vainly research, our workaround was therefore to not
 use docker-in-docker, but to have a new GitLab runner that runs
@@ -370,7 +375,7 @@ in this case---that would run the query code every once in a while.
 Making a systemd timer service seemed like the best idea as most Linux
 distributions use systemd. However, the image that we used in our
 container seemingly did not ship with any systemd utilities, although
-evidence suggested systemd was probably present.
+evidence suggested systemd was likely present.
 
 After a bit of research, we ultimately decided to create a cron job
 using the \verb|crontab| utility. We set up this job to run our data
@@ -381,9 +386,9 @@ read from the file.
 
 \subsection{Assessment}
 
-Regarding the gathering of data from \gls{e4l}, one could further
-improve this workflow by better highlighting the existence and
-features of the back-end as they seem to be somewhat scattered
+Regarding the gathering of data from \gls{e4l}, one could improve and
+simplify this workflow by better highlighting the existence and
+features of the back-end. They seem to be somewhat scattered
 throughout the application's documentations and are easy to miss.
 
 Also, given that the endpoints were specifically made to be used by
@@ -392,13 +397,13 @@ usable for \textit{general} API usage (i.e. the hard coded data in the
 front-end). Further, as could be observed in the implementation of the
 back-end endpoints, not all available database and service
 functionalities were reachable through the API (i.e. no way to
-directly query all answers for making statistics). A tight coupling of
+\emph{directly} query all answers for making statistics). A tight coupling of
 front- and back-end can be observed here.
 
 Taking a step back and disregarding all the big technical roadblocks
-we encountered when trying to obtain data from \gls{e4l}, when
-containerising our application and when trying to create the automated
-pipeline using docker-in-docker, it was actually very simple to set up
+we encountered---while trying to obtain data from \gls{e4l}; while
+containerising our application; and while trying to create the automated
+pipeline using docker-in-docker---it was actually very simple to set up
 this specific \gls{ms}. It essentially only consisted in grabbing the
 data, making the graph, and updating the data periodically. Seeing
 how---in the end---we had a very precise entry point into \gls{e4l}
@@ -411,7 +416,7 @@ One should keep in mind however, that this is the first and only
 \gls{ms} created for \gls{e4l} at this point in time, so we did not
 have to worry about managing clusters of services and taking care of
 all the complexities that come along with them. We were able to work
-with a simplified example of \glspl{ms}.
+with a simplified scenario of \glspl{ms}.
 
 % \KB{Was is easy to deploy \gls{ms}? Flaws in the service that still
 % need to be treated? (i.e. availability of \gls{e4l})}
@@ -424,7 +429,7 @@ Further, the deployment of both our API and database solutions are the
 exact same thanks to the docker utilities. Inside these docker
 configurations there are slight differences, but they do not reflect
 in the actual deployment process. In fact, both deployments are
-completely unrelated from each other given that each solution has its
+completely unrelated from each other since each solution has its
 own pipeline and repository. Making changes to one \gls{ms} will not
 have an impact on the other one, since there is no common code base
 between the two. We only need \gls{e4l} to be running for both
@@ -439,8 +444,14 @@ To assess our initial goal of finding out how easy it is to deploy a
 \gls{ms}, one has to note that it was quite a bumpy ride all along due
 to the many unexpected and inexplicable issues encountered. However,
 once we finally had our automated pipeline we did not need to worry
-about anything anymore. We simply push our changes to the repository,
+about any of it anymore. We simply push our changes to the repository,
 and the application will automatically be redeployed without any
-further intervention. After going through the manual steps, and
+further intervention. After going through the---let's not hide
+it---extremely rocky manual steps, and
 automating them, we have indeed achieved a state where deploying a
-\gls{ms} is very simple and fast.
+\gls{ms} has become very simple and fast.
+
+That said, there are essentially two sides of a coin to consider for
+the assessment: The path and the goal. The former turned out to be
+very troublesome in our case, whereas the latter turned out to provide
+great ease for the development.
