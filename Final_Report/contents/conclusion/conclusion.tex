@@ -4,20 +4,19 @@
 Creating this \gls{ms} was quite a challenge, mainly due to the many
 unforeseen issues with the various tools. It is hard to say if a lot
 of these issues could have been avoided by simply using a different
-programming language than Python. It seemed like simplest for our use
-case---especially since it is the language I am most comfortable
-with---but given how the original \gls{e4l} code was written in Java
-and did not seem to have faced similar problems, there is reason to
-suspect the Python libraries we used had some trouble coping with our
-setting.
+programming language than Python. Given how the original \gls{e4l}
+code was written in Java and did not seem to have faced similar
+problems, there is reason to suspect the Python libraries we used had
+some trouble coping with our setting.
 
 Overlooking the numerous roadblocks, the process of creating the
 \gls{ms} was rather straightforward. This was further boosted by the
 clear boundaries between the monolith and the service, which avoided
 us from having to dive into the \gls{e4l} code in order to integrate
-our functionality. We were therefore able to implement our service
+our functionality. Thus, a key to success is the clear definition and
+specification of service interfaces. We were therefore able to implement our service
 without too much regard to the original code base. The end result of
-having an automated pipeline further eases the production greatly---now
+having an automated pipeline further eases the development greatly---now
 modifications will automatically be deployed without manual
 intervention.
 
